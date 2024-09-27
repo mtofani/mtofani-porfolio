@@ -1,0 +1,221 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '@/styles/globals.css'
+import { Button } from "@/components/ui/button"
+import { ChevronRight, Code, Server, Cpu, Cloud, Phone, CloudIcon, BrainCircuitIcon, RocketIcon, BarChartIcon } from 'lucide-react'
+import { Card, CardContent } from "@/components/ui/card"
+
+
+
+
+const services = [
+  { 
+    icon: 'Code',
+    title: "Desarrollo Avanzado",
+    description: "Soluciones de software innovadoras utilizando las últimas tecnologías en React, Python y Node.js."
+  },
+  {
+    icon: 'Server',
+    title: "Arquitectura de Soluciones",
+    description: "Diseño de sistemas escalables y de alto rendimiento para empresas en crecimiento."
+  },
+  {
+    icon: 'Cpu',
+    title: "Integración de IA",
+    description: "Implementación de soluciones de IA y aprendizaje automático para optimizar procesos empresariales."
+  },
+  {
+    icon: 'Cloud',
+    title: "Transformación Digital",
+    description: "Guía estratégica para la adopción de tecnologías cloud y prácticas DevOps."
+  }
+];
+
+
+const experiencias = [
+  {
+    icon: "CloudIcon",
+    titulo: "Desarrollo y Arquitectura",
+    descripcion: "Más de 12 años de experiencia en desarrollo y arquitectura de sistemas.",
+    color: "text-blue-500"
+  },
+  {
+    icon: "RocketIcon",
+    titulo: "Liderazgo en Transformación Digital",
+    descripcion: "Liderazgo en proyectos de transformación digital para empresas Fortune 500.",
+    color: "text-green-500"
+  },
+  {
+    icon: "CloudIcon",
+    titulo: "Experto en Cloud y DevOps",
+    descripcion: "Experto en tecnologías cloud (AWS, GCP) y prácticas DevOps.",
+    color: "text-purple-500"
+  },
+  {
+    icon: "BrainCircuitIcon",
+    titulo: "IA y Machine Learning",
+    descripcion: "Implementación exitosa de soluciones de IA y Machine Learning en diversos sectores.",
+    color: "text-red-500"
+  },
+]
+
+const iconComponents = {
+  CloudIcon,
+  BrainCircuitIcon,
+  RocketIcon
+}
+---
+
+<Layout title="Welcome to Astro.">
+
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOFANI TECH - Soluciones Tecnológicas Innovadoras</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-blue-100 to-indigo-100 min-h-screen">
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="text-xl font-bold text-gray-800">TOFANI TECH</div>
+            <div class="flex space-x-4">
+                <a href="#servicios" class="text-gray-600 hover:text-gray-800">Servicios</a>
+                <a href="#experiencia" class="text-gray-600 hover:text-gray-800">Experiencia</a>
+                <a href="#contacto" class="text-gray-600 hover:text-gray-800">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <section class="text-center mb-20">
+            <h1 class="text-5xl font-bold text-gray-800 mb-4">Soluciones Tecnológicas Innovadoras</h1>
+            <p class="text-xl text-gray-600 mb-8">Transformando negocios a través de la experiencia en IT y consultoría estratégica</p>
+            <Button client:load className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full text-lg">
+                Descubre Nuestros Servicios
+                <ChevronRight client:load className="ml-2 h-5 w-5" />
+            </Button>
+        </section>
+
+        <section id="servicios" class="mb-20">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Nuestros Servicios</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {services.map((service, index) => (
+                    <Card key={index} className="bg-white hover:shadow-lg transition-shadow duration-300">
+                        <div class="p-6">
+                            <div class="flex flex-col items-center text-center">
+                                {service.icon === 'Code' && <Code client:load className="h-8 w-8 mb-4" />}
+                                {service.icon === 'Server' && <Server client:load className="h-8 w-8 mb-4" />}
+                                {service.icon === 'Cpu' && <Cpu client:load className="h-8 w-8 mb-4" />}
+                                {service.icon === 'Cloud' && <Cloud client:load className="h-8 w-8 mb-4" />}
+                                <h3 class="text-xl font-semibold mb-2">{service.title}</h3>
+                                <p class="text-gray-600">{service.description}</p>
+                            </div>
+                        </div>
+                    </Card>
+                ))}
+            </div>
+        </section>
+
+		<section id="experiencia" class="py-20 bg-gray-50">
+			<div class="container mx-auto px-4">
+			  <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Experiencia Comprobada</h2>
+			  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+				{experiencias.map((exp) => {
+				  const IconComponent = iconComponents[exp.icon];
+				  return (
+					<Card className="hover:shadow-lg transition-shadow duration-300">
+					  <div class="flex items-start p-6">
+						<div class="flex-shrink-0 mr-4">
+						  <IconComponent className={`w-8 h-8 ${exp.color}`} />
+						</div>
+						<div>
+						  <h3 class="text-xl font-semibold text-gray-800 mb-2">{exp.titulo}</h3>
+						  <p class="text-gray-600">{exp.descripcion}</p>
+						</div>
+					  </div>
+					</Card>
+				  );
+				})}
+			  </div>
+			</div>
+		  </section>
+
+        <section id="contacto" class="text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">¿Listo para Transformar tu Negocio?</h2>
+            <p class="text-xl text-gray-600 mb-8">Contáctanos hoy para una consulta gratuita</p>
+            <Button client:load className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full text-lg flex items-center mx-auto">
+                <Phone client:load className="mr-2 h-5 w-5" />
+                Agendar una Llamada
+            </Button>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 TOFANI TECH. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	.astro-a {
+		position: absolute;
+		top: -32px;
+		left: 50%;
+		transform: translatex(-50%);
+		width: 220px;
+		height: auto;
+		z-index: -1;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		margin-bottom: 2rem;
+		border: 1px solid rgba(var(--accent-light), 25%);
+		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+		padding: 1.5rem;
+		border-radius: 8px;
+	}
+	.instructions code {
+		font-size: 0.8em;
+		font-weight: bold;
+		background: rgba(var(--accent-light), 12%);
+		color: rgb(var(--accent-light));
+		border-radius: 4px;
+		padding: 0.3em 0.4em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent-light));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
+</style>

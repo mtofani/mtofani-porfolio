@@ -1,0 +1,55 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE = [
+  {
+    date: "Actualmente...",
+    title: "IT Consultant",
+    company: "MT",
+    description:
+      "Consultoría personalizada de IT, Transformación digital, Automatizacio, Adopcion de IA & Cloud. Actualmente trabajando en un proyecto trabajando con IBM y un ISP en el diseño de arquitectura, implementación y adopcion plataformas de observabilidad multitenant para clientes",
+    link: "https://twitch.tv/midudev",
+  },
+
+  {
+    date: "Jul 2022 - May 2024",
+    title: "Solutions Architect",
+    company: "IPLAN NSS",
+    description:
+      "",
+    link: "https://twitch.tv/midudev",
+  },
+  {
+    date: "Oct 2019 - Jun 2022",
+    title: "Software Engineer",
+    company: "IPLAN NSS",
+    description:
+      "Diseñé arquitectura de las plataformas de monitoreo, reemplazando las soluciones de Fault & Performance de toda la compañia, cubriendo más de 3.000 dispositivos y reduciendo los costos anuales en un 88% del budget. Lideré también la automatización de integraciones de API REST y Webhooks utilizando Python y JavaScript. Además, impulsé iniciativas de I+D para la adopción de nuevas tecnologías, optimizando la eficiencia operativa​"
+  },
+
+  {
+    date: "Septiembre 2022",
+    title: "IT Consultant",
+    company: "SITS - PandoraFMS ",
+    description:
+      "Lideré el proceso de investigación para el cliente ARTICA en la adopción de QA Automation (e2e) para los releases de su producto de monitorizacion PANDORAFMS y participé en los procesos de mejorar de las mesas de ayuda para LATAM incoporando KB, software requests e integraciones"
+  },
+  {
+    date: "Oct 2019 - Jun 2022",
+    title: "NMS Analyst",
+    company: "IPLAN NSS",
+    description: "Support & Automation in NMS, discovery, autoprovisoning, SNMP scripting."
+      
+  },
+
+]
+---
+
+<ol class="relative mt-16 px-6">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

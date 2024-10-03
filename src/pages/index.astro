@@ -1,11 +1,70 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+import React, { useEffect, useState } from "react";
 import '@/styles/globals.css'
 import { Button } from "@/components/ui/button"
-import { ChevronRight, Code, Server, Cpu, Cloud, Phone, CloudIcon, BrainCircuitIcon, RocketIcon, BarChartIcon } from 'lucide-react'
 import { Card, CardContent } from "@/components/ui/card"
+import { Database, Cloud, Server, Brain, Code, Cpu, Phone } from "lucide-react"
+import ExperienceCarousel from '../components/ExperienceCarousel';
+import Hero from "@/components/Hero.astro"
+import LinkInLine from "@/components/LinkInline.astro"
+import SectionContainer from "@/components/SectionContainer.astro"
+import Link from '@/components/icons/Link.astro';
+import Experience from '@/components/Experience.astro';
+import SkillTree from '@/components/Tree.jsx'; // Importa el componente React
 
 
+
+// Función para obtener el ícono correcto
+function getIcon(iconName) {
+  switch (iconName) {
+    case "Database":
+      return Database
+    case "Cloud":
+      return Cloud
+    case "Server":
+      return Server
+    case "Brain":
+      return Brain
+    case "Code":
+      return Code
+    default:
+  
+  }
+}
+const skills = [
+  {
+    icon: "Database",
+    title: "Stream, Cache, Database",
+    description: "Redis, Kafka, SQL (Oracle, MySQL, InfluxDB, PostgreSQL), NoSQL (MongoDB, DynamoDB)",
+    color: "bg-blue-500"
+  },
+  {
+    icon: "Cloud",
+    title: "Cloud & Microservices",
+    description: "Openshift/Kubernetes, Helm, ServiceMesh, Docker, VMWare, AWS, GCP",
+    color: "bg-green-500"
+  },
+  {
+    icon: "Server",
+    title: "Operating Systems & Network",
+    description: "Linux, RHEL, CentOS, SNMP (MIBS, Trap & Polling, Discovery, Backups)",
+    color: "bg-purple-500"
+  },
+  {
+    icon: "Brain",
+    title: "AI & Machine Learning",
+    description: "Langchain, Jupyter Notebooks, LLM (HuggingFace, SageMaker, Bedrock, Transformers), RAG, Fine Tuning",
+    color: "bg-red-500"
+  },
+  {
+    icon: "Code",
+    title: "Development & Automation",
+    description: "JavaScript (React, Node.js), Python, API & Integrations, Mobile & Web apps, CI/CD",
+    color: "bg-yellow-500"
+  }
+]
 
 
 const services = [
@@ -31,191 +90,167 @@ const services = [
   }
 ];
 
-
 const experiencias = [
   {
     icon: "CloudIcon",
     titulo: "Desarrollo y Arquitectura",
     descripcion: "Más de 12 años de experiencia en desarrollo y arquitectura de sistemas.",
-    color: "text-blue-500"
+    color: "text-blue-400"
   },
   {
     icon: "RocketIcon",
     titulo: "Liderazgo en Transformación Digital",
     descripcion: "Liderazgo en proyectos de transformación digital para empresas Fortune 500.",
-    color: "text-green-500"
+    color: "text-green-400"
   },
   {
     icon: "CloudIcon",
     titulo: "Experto en Cloud y DevOps",
     descripcion: "Experto en tecnologías cloud (AWS, GCP) y prácticas DevOps.",
-    color: "text-purple-500"
+    color: "text-purple-400"
   },
   {
     icon: "BrainCircuitIcon",
     titulo: "IA y Machine Learning",
     descripcion: "Implementación exitosa de soluciones de IA y Machine Learning en diversos sectores.",
-    color: "text-red-500"
+    color: "text-red-400"
   },
 ]
-
-const iconComponents = {
-  CloudIcon,
-  BrainCircuitIcon,
-  RocketIcon
-}
 ---
 
-<Layout title="Welcome to Astro.">
 
 
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOFANI TECH - Soluciones Tecnológicas Innovadoras</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gradient-to-r from-blue-100 to-indigo-100 min-h-screen">
-    <header class="bg-white shadow-md">
-        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <div class="text-xl font-bold text-gray-800">TOFANI TECH</div>
-            <div class="flex space-x-4">
-                <a href="#servicios" class="text-gray-600 hover:text-gray-800">Servicios</a>
-                <a href="#experiencia" class="text-gray-600 hover:text-gray-800">Experiencia</a>
-                <a href="#contacto" class="text-gray-600 hover:text-gray-800">Contacto</a>
-            </div>
-        </nav>
-    </header>
+<Layout title="MT - Soluciones Tecnológicas Innovadoras" description='El portafolio'>
+<div class="bg-gray-900 text-white min-h-screen">
 
-    <main class="container mx-auto px-6 py-12">
-        <section class="text-center mb-20">
-            <h1 class="text-5xl font-bold text-gray-800 mb-4">Soluciones Tecnológicas Innovadoras</h1>
-            <p class="text-xl text-gray-600 mb-8">Transformando negocios a través de la experiencia en IT y consultoría estratégica</p>
-            <Button client:load className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full text-lg">
-                Descubre Nuestros Servicios
-                <ChevronRight client:load className="ml-2 h-5 w-5" />
-            </Button>
-        </section>
+    <main class="container px-6">
+		<SectionContainer>
+				<Hero></Hero>
+		</SectionContainer>
 
-        <section id="servicios" class="mb-20">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Nuestros Servicios</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {services.map((service, index) => (
-                    <Card key={index} className="bg-white hover:shadow-lg transition-shadow duration-300">
-                        <div class="p-6">
-                            <div class="flex flex-col items-center text-center">
-                                {service.icon === 'Code' && <Code client:load className="h-8 w-8 mb-4" />}
-                                {service.icon === 'Server' && <Server client:load className="h-8 w-8 mb-4" />}
-                                {service.icon === 'Cpu' && <Cpu client:load className="h-8 w-8 mb-4" />}
-                                {service.icon === 'Cloud' && <Cloud client:load className="h-8 w-8 mb-4" />}
-                                <h3 class="text-xl font-semibold mb-2">{service.title}</h3>
-                                <p class="text-gray-600">{service.description}</p>
-                            </div>
-                        </div>
-                    </Card>
-                ))}
-            </div>
-        </section>
 
-		<section id="experiencia" class="py-20 bg-gray-50">
-			<div class="container mx-auto px-4">
-			  <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Experiencia Comprobada</h2>
-			  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-				{experiencias.map((exp) => {
-				  const IconComponent = iconComponents[exp.icon];
-				  return (
-					<Card className="hover:shadow-lg transition-shadow duration-300">
-					  <div class="flex items-start p-6">
-						<div class="flex-shrink-0 mr-4">
-						  <IconComponent className={`w-8 h-8 ${exp.color}`} />
-						</div>
-						<div>
-						  <h3 class="text-xl font-semibold text-gray-800 mb-2">{exp.titulo}</h3>
-						  <p class="text-gray-600">{exp.descripcion}</p>
-						</div>
-					  </div>
-					</Card>
-				  );
-				})}
-			  </div>
+    <SectionContainer>
+      <Experience></Experience>
+  
+       </SectionContainer>
+
+      
+		<section id="servicios" class=" bg-gray">
+			<div class="container mx-auto px-6">
+				<h2 class="text-4xl font-bold text-center mb-16"> Servicios</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+					{services.map((service, index) => (
+						<Card key={index} className="bg-gray-700 text-white-100 text-md overflow-hidden group transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl">
+							<CardContent className="p-6 relative z-10">
+								<div class="flex flex-col items-center text-center relative z-10">
+									<div class="mb-4 transition-transform duration-300 ease-in-out transform group-hover:scale-110 group-hover:text-purple-300">
+										{service.icon === 'Code' && <Code client:load className="h-12 w-12 text-blue-400 group-hover:text-purple-300" />}
+										{service.icon === 'Server' && <Server client:load className="h-12 w-12 text-green-400 group-hover:text-purple-300" />}
+										{service.icon === 'Cpu' && <Cpu client:load className="h-12 w-12 text-purple-400 group-hover:text-purple-300" />}
+										{service.icon === 'Cloud' && <Cloud client:load className="h-12 w-12 text-red-400 group-hover:text-purple-300" />}
+									</div>
+									<h3 class="text-xl font-semibold mb-2 transition-colors duration-300 ease-in-out group-hover:text-purple-300">{service.title}</h3>
+									<p class="text-gray-300 transition-colors duration-300 ease-in-out group-hover:text-white">{service.description}</p>
+								</div>
+							</CardContent>
+							<div class="absolute inset-0 bg-purple-600 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-90"></div>
+						</Card>
+					))}
+				</div>
 			</div>
-		  </section>
+		</section>
 
-        <section id="contacto" class="text-center">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8">¿Listo para Transformar tu Negocio?</h2>
-            <p class="text-xl text-gray-600 mb-8">Contáctanos hoy para una consulta gratuita</p>
-            <Button client:load className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full text-lg flex items-center mx-auto">
-                <Phone client:load className="mr-2 h-5 w-5" />
-                Agendar una Llamada
-            </Button>
-        </section>
+    <section class="py-20 bg-gray-900 min-h-screen flex items-center justify-center">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16 text-white">Tecnologías</h2>
+        <SkillTree   client:load/>  <!-- Usa el componente React aquí -->
+      </div>
+    </section>
+
+
+       
     </main>
+</div>
 
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2024 TOFANI TECH. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-</body>
-</html>
 </Layout>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+
+   <style is:global>
+      :root {
+        color-scheme: light dark;
+      }
+
+      html {
+        font-family: "Onest Variable", system-ui, sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        color: rgba(17, 17, 17, 0.9);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overscroll-behavior: none;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          color: rgba(255, 255, 255, 0.9);
+        }
+      }
+
+      #header-nav {
+        animation: blur linear both 0.5s;
+        animation-timeline: scroll();
+        animation-range: 0 500px;
+      }
+
+      @keyframes blur {
+        to {
+          backdrop-filter: blur(20px);
+          border-width: 1px;
+          border-color: rgba(0, 0, 0);
+          padding: 0.25rem 0.75rem;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          background-color: rgb(229, 229, 229);
+          border-radius: 9999px;
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        @keyframes blur {
+          from {
+            border: 0px;
+          }
+          to {
+            box-shadow:
+              0px 5px 50px -5px rgba(0, 0, 0, 0.1),
+              0px 0px 0 1px rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            border-width: 1px;
+            border-color: rgba(0, 0, 0);
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 9999px;
+          }
+        }
+      }
+    </style>
+

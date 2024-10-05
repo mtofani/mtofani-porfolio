@@ -1,13 +1,14 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro"
+import { ChevronDown, ChevronUp } from "lucide-react"
 const EXPERIENCE = [
   {
     date: "Actualmente...",
     title: "IT Consultant",
     company: "MT",
     description:
-      "Consultoría personalizada de IT, Transformación digital, Automatizacio, Adopcion de IA & Cloud. Actualmente trabajando en un proyecto trabajando con IBM y un ISP en el diseño de arquitectura, implementación y adopcion plataformas de observabilidad multitenant para clientes",
-    link: "https://twitch.tv/midudev",
+      "Me trabajando como consultor externo en un proyecto con IBM y un ISP, en dos verticales: Multitenancy observability en HA para customers y Network Automation, utilizando tecnologías como IBM Sevone NPM y IBM Rapid Network Automatio",
+    link: "www.google.com",
   },
 
   {
@@ -15,41 +16,91 @@ const EXPERIENCE = [
     title: "Solutions Architect",
     company: "IPLAN NSS",
     description:
-      "",
-    link: "https://twitch.tv/midudev",
+      "• Investigación, desarrollo y diseño de plataformas innovadoras que impulsan la transformación digital en los departamentos de Ingeniería y Operaciones.\n•  Programa de mentoring en DevOps, reentrenando colegas, operadores y desarrolladores."
+   ,
+    milestones: "Hitos: Projecto IPLAN WholeSaler (Integración con aliados ISPs sobre red GPON) \n Cliente:  Telefonica Argentina. \n En solo 4 meses, como Arquitecto/Tech Lead, lideré la construcción & integración de sistemas de IPLAN Mayorista (Fault & Diagnostics). Coordinando desarrollo interno y externo con la factory Semperti utilizando tecnologías como Flask-RESTx, APIGW Sprigboot, Docker, Openshift, Kafka, entre otras"
+  },
+  {
+    date: "May 2021 - Sept 2022",
+    title: "(External) IT Consultant",
+    company: "SITS - PandoraFMS ",
+    description:
+      "Lideré el proceso de investigación para el cliente ARTICA en la adopción de QA Automation (e2e) para los releases de su producto de monitorizacion PANDORAFMS y participé en los procesos de mejorar de las mesas de ayuda para LATAM incoporando KR, software rRequests e integraciones."
   },
   {
     date: "Oct 2019 - Jun 2022",
     title: "Software Engineer",
     company: "IPLAN NSS",
     description:
-      "Diseñé arquitectura de las plataformas de monitoreo, reemplazando las soluciones de Fault & Performance de toda la compañia, cubriendo más de 3.000 dispositivos y reduciendo los costos anuales en un 88% del budget. Lideré también la automatización de integraciones de API REST y Webhooks utilizando Python y JavaScript. Además, impulsé iniciativas de I+D para la adopción de nuevas tecnologías, optimizando la eficiencia operativa​"
-  },
-
-  {
-    date: "Septiembre 2022",
-    title: "IT Consultant",
-    company: "SITS - PandoraFMS ",
-    description:
-      "Lideré el proceso de investigación para el cliente ARTICA en la adopción de QA Automation (e2e) para los releases de su producto de monitorizacion PANDORAFMS y participé en los procesos de mejorar de las mesas de ayuda para LATAM incoporando KB, software requests e integraciones"
+      "Diseñé arquitectura de las plataformas de monitoreo, reemplazando las soluciones de Fault & Performance de toda la compañia, cubriendo más de 3.000 dispositivos y reduciendo los costos anuales en un 88% del budget. También la automatización de integraciones de API REST y Webhooks utilizando Python y JavaScript. Además, impulsé iniciativas de I+D para la adopción de nuevas tecnologías, optimizando la eficiencia operativa.​"
+  ,
+   milestones: "Hitos: Lidere la adopción y construcción de APIs REST dentro de la compañia, disponibilizando servicios con Flask-RESTx, integrando con sistemas de IPLAN y otros convirtiendolo el framework de desarrollo de APIs de IPLAN conectando tanto sistemas actuales como legacy"
   },
   {
-    date: "Oct 2019 - Jun 2022",
+    date: "Oct 2011 - Jun 2019",
     title: "NMS Analyst",
     company: "IPLAN NSS",
-    description: "Support & Automation in NMS, discovery, autoprovisoning, SNMP scripting."
+    description: "Analista de NMS, soporte en sistemas de autoprovisoning, descubrimiento de la red del ISP, SNMP y Bash scripting."
       
   },
 
 ]
 ---
 
-<ol class="relative mt-16 px-6">
-  {
-    EXPERIENCE.map((experience) => (
-      <li class="">
-        <ExperienceItem {...experience} />
-      </li>
-    ))
-  }
+<div class="mb-4">
+  <button id="toggle-btn" class="bg-dark-700 text-white px-4 py-2  transition-all duration-700 ease-in-out transform hover:scale-105 hover:text-yellow-300 hover:bg-purple-500 border-1 border border-purple-500 rounded-full text-xs text-font-bold">
+    Mostrar mas
+  </button>
+  
+</div>
+
+<ol id="experiencia" class="relative mt-6 px-6transition-opacity duration-500 ease-in">
+
+  {EXPERIENCE.map((experience, index) => (
+    <li class={`${index >= 2 ? 'hidden' : ''} ${index >= 2 ? 'opacity-0' : ''} transition-opacity duration-500 ease-in`}>
+      <ExperienceItem
+        date={experience.date}
+        title={experience.title}
+        company={experience.company}
+        description={experience.description}
+        milestones={experience.milestones}
+        link={experience.link}
+      />
+    </li>
+  ))}
 </ol>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('toggle-btn');
+  const experiences = document.querySelectorAll('#experiencia li');
+
+  let showMore = false;
+
+  function fadeIn(element) {
+    element.classList.remove('opacity-0');
+    element.classList.add('opacity-100');
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    showMore = !showMore;
+    experiences.forEach((exp, index) => {
+      if (index >= 2) {
+        if (showMore) {
+          exp.classList.remove('hidden');
+          exp.classList.add('opacity-0');
+          setTimeout(() => fadeIn(exp), 10);
+          window.scrollBy({
+            top: 300,
+            behavior: 'smooth'
+          });
+        } else {
+          exp.classList.add('hidden');
+          exp.classList.remove('opacity-100');
+        }
+      }
+    });
+    toggleBtn.textContent = showMore ? 'Mostrar menos' : 'Mostrar mas';
+  });
+});
+</script>

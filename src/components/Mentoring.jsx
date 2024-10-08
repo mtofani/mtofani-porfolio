@@ -1,56 +1,88 @@
 import React from 'react'
-import { Calendar, Coffee, ChevronRight } from 'lucide-react'
+import { Calendar, Coffee, MessageSquare, Users, ChevronRight } from "lucide-react"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 
 export default function EnhancedMinimalistMentoringDonation() {
   return (
-    <section className="text-gray-100 py-20">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-4xl font-extrabold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+    <section id ="mentoring" className="">
+      <div className="container mx-auto px-4">
+       
+      <h2 className="text-4xl font-extrabold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
           Mentoría y Apoyo
         </h2>
+     
+       
         
-        <div className="space-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 rounded-xl p-5 gap-5">
+        <div className="flex items-start">
+            <img 
+              src="/techmaxi.webp" 
+              alt="Mentoring" 
+              className="top-0 left-0 scale-90 object-fit rounded-xl filter saturate-75 contrast-75 brightness-90" 
+            />
+          </div>
+
+        <div id="finalservices" className="grid gap-4 items-center ">
           {/* Mentoring Section */}
-          <div className="bg-gray-800 p-8 rounded-xl shadow-lg transform transition duration-500 hover:scale-105">
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-2xl font-bold text-blue-400">Asesoramiento Personalizado</h3>
-              <Calendar className="w-8 h-8 text-blue-400" />
-            </div>
-            <p className="mb-8 text-gray-300 text-lg leading-relaxed">
-              Agenda una sesión de mentoría para resolver dudas y superar obstáculos en tu proyecto. Juntos, llevaremos tus habilidades al siguiente nivel.
-            </p>
+         
+
+            <Card className='bg-purple-600/10 p-2 mt-5'>
+            <CardHeader >
+              <CardTitle className='text-xl'>Asesoramiento Personalizado</CardTitle>
+              <CardDescription>Agenda tu sesión en Calendly y resolvamos tus dudas o las de tu equipo.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex items-center space-x-2">
+                <Calendar className="text-primary" />
+                <span>Sesiones flexibles de 30 o 60 minutos</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <MessageSquare className="text-primary" />
+                <span>Chat en vivo durante la sesión</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Users className="text-primary" />
+                <span>Opción de sesiones grupales</span>
+              </div>
+            </CardContent>
+            <CardFooter>
             <a
-              href="https://calendly.com/your-calendly-link"
+              href="https://calendly.com/maximilianomt"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1"
+              className="group inline-flex items-center border border-purple-500  hover:bg-purple-500 text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1"
             >
               Reservar Sesión
               <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </a>
-          </div>
+            </CardFooter>
+          </Card>
+            
 
-          {/* Donation Section */}
-          <div className="bg-gray-800 p-8 rounded-xl shadow-lg transform transition duration-500 hover:scale-105">
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-2xl font-bold text-yellow-400">Apoya mi Trabajo</h3>
-              <Coffee className="w-8 h-8 text-yellow-400" />
+        
+          
+
+               {/* Donation Section */}
+               <div className="bg-gray-800 p-6 rounded-xl shadow-lg transform transition duration-500 hover:scale-105">
+            <div className="flex items-center">
+              <h3 className="text-xl font-bold text-yellow-400">Apoya mi Trabajo</h3>
+              <Coffee className="w-10 h-10 text-yellow-400 p-2" />
             </div>
-            <p className="mb-8 text-gray-300 text-lg leading-relaxed">
-              Si mi contenido te ha sido útil, considera invitarme a un café. Tu apoyo me ayuda a seguir creando recursos valiosos para la comunidad.
+            <p className="mb-10 text-gray-300 text-md leading-relaxed">
+              Si mi contenido te ha sido útil, considera invitarme a un café!
             </p>
-            <a
-              href="https://www.buymeacoffee.com/your-username"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1"
-            >
-              Invitar un Café
-              <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-            </a>
+            <a href='https://cafecito.app/maximilianomt'  className="group inline-flex  p-2 items-center rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1"rel='noopener' target='_blank'><img srcset='https://cdn.cafecito.app/imgs/buttons/button_3.png 1x, https://cdn.cafecito.app/imgs/buttons/button_3_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_3_3.75x.png 3.75x' src='https://cdn.cafecito.app/imgs/buttons/button_3.png' alt=' Invitame un café en cafecito.app ' /></a>  
+            </div>
           </div>
         </div>
+        
+
       </div>
+
+  
+
+      
     </section>
   )
 }

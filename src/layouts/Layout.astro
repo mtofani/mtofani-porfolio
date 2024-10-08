@@ -11,25 +11,28 @@ interface Props {
 }
 
 const { description, title } = Astro.props
+
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-
+   
+    
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
     <title>{title}</title>
+  
     <ViewTransitions />
   </head>
 
-  <body class="">
+  <body class="bg-gray-50 dark:bg-gray-950">
     <div
-      class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950"
+      class=""
     >
     </div>
     <Header />

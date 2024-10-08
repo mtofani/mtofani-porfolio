@@ -46,14 +46,13 @@ const skills = [
       { name: 'AWS', level: 'Avanzado', description: 'Diseño de arquitecturas serverless, gestión de servicios y automatización de procesos utilizando productos clave como S3, EC2, Lambda y RDS, garantizando soluciones escalables', iconClass: 'devicon-amazonwebservices-plain' },
       { name: 'GCP', level: 'Intermedio', description: ' Experiencia en implementación y optimización soluciones en la nube, instancias de máquinas virtuales y servicios de almacenamiento.', iconClass: 'devicon-googlecloud-plain' },
     ],
-    color: 'bg-green-500',
-  },
+    color: 'bg-teal-500',  },
  
   
   {
     icon: 'Brain',
     title: 'Machine Learning & AI',
-    description: 'Integración de IA en tu empresa o producto mediante soluciones personalizadas. Asesoramiento en la implementación de modelos y bots para optimizar procesos y mejorar la eficiencia.',
+    description: 'Te ayudamos a integrar IA en tu empresa usando herramientas como: OpenAI, Bedrock y SageMaker. Implementamos modelos y bots a medida para optimizar procesos y hacer que todo funcione de manera más eficiente."',
     technologies: [
      
       { name: 'Modelos de Lenguaje', level: 'Intermedio', description: 'Personaliza tu propio GPT con documentos utilizando Hugging Face y SageMaker.', iconClass: 'devicon-huggingface-plain' },
@@ -85,7 +84,7 @@ const skills = [
         description: 'Desarrollo de APIs backend robustas y escalables, facilitando la creación de servidores y gestión de rutas.', 
         iconClass: 'devicon-express-original' 
       }],
-    color: 'bg-yellow-500',
+    color: 'bg-green-500',
   },
   {
     icon: 'Globe',
@@ -126,7 +125,7 @@ const skills = [
       },
      
     ],
-    color: 'bg-gray-800',
+    color: 'bg-orange-400',
   }, 
   // Más categorías...
 ]
@@ -160,22 +159,34 @@ export default function SkillTree() {
 
     if (activeSkill !== index) {
       setTimeout(() => {
-        window.scrollTo({
-          top: window.scrollY + 300, // Ajusta el valor según lo que necesites desplazar
-          behavior: 'smooth', // Desplazamiento suave
-        });
-      }, 300); // Ajuste del tiempo en relación a la animación
+        const element = document.getElementById('techdetailed');
+        if (element) {
+          // Obtener a posición del elemento
+          const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+          
+          window.scrollTo({
+            top: elementPosition , // Ajusta el valor si necesitas un desplazamiento adicional
+            behavior: 'smooth', // Desplazamiento suave
+          });
+        }
+      }, 100); // Puedes ajustar el tiempo de espetiempo en relación a la animación
     }
   }
 
   const handleClose = () => {
     setActiveSkill(null);
     setTimeout(() => {
-      window.scrollTo({
-        top: window.scrollY - 300, // Ajusta el valor según lo que necesites desplazar
-        behavior: 'smooth', // Desplazamiento suave
-      });
-    }, 100); // A
+      const element = document.getElementById('techdetailed');
+      if (element) {
+        // Obtener a posición del elemento
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        
+        window.scrollTo({
+          top: elementPosition , // Ajusta el valor si necesitas un desplazamiento adicional
+          behavior: 'smooth', // Desplazamiento suave
+        });
+      }
+    }, 100); // Puedes ajustar el tiempo de espera si es necesario
   };
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -198,8 +209,8 @@ export default function SkillTree() {
     <section className="py-20">
       <div id ="skills" className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center text-white">Skills</h2>
-        <h3 className="text-xl font-bold text-center text-purple-400 mb-8">Clickea para saber mas</h3>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-8">
+        <h3 className="text-lg font-bold text-center text-transparent  mb-8  bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Clickea en ellas para saber mas</h3>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20  mb-8 py-10">
           {skills.map((skill, index) => (
             <motion.div
               key={index}
@@ -208,12 +219,13 @@ export default function SkillTree() {
               whileTap={{ scale: 0.95 }}
             >
               <motion.div
-                className={`w-16 h-16 rounded-full flex items-center justify-center cursor-pointer ${skill.color}`}
+                className={`w-16 h-16 rounded-full flex items-center justify-center cursor-pointer hover:border-yellow-400 border-2  ${skill.color}`}
                 onClick={() => handleSkillClick(index)}
-              >
+              > 
                 {getIcon(skill.icon)}
               </motion.div>
-              <h3 className="text-sm font-semibold text-white mt-2 text-center">{skill.title}</h3>
+              <h3 className="text-md font-semibold text-white mt-2 text-center ">{skill.title}</h3>
+              
             </motion.div>
           ))}
         </div>
@@ -225,25 +237,25 @@ export default function SkillTree() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="w-full mx-auto bg-gray-800 rounded-lg p-6 mt-8 shadow-xl"
+              className="w-full bg-purple-900/30 mx-auto  rounded-lg p-6 mt-8 shadow-xl"
             >
               <div className="w-full items-center mb-4">
                 
                
-                <div>
+                <div id="techdetailed">
                 <div className="flex">
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center ${skills[activeSkill].color} mr-4`}>
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center ${skills[activeSkill].color} mr-4`}>
                   {getIcon(skills[activeSkill].icon)}
                   
                 </div>
                 <button
                   onClick={handleClose}
-                  className="text-gray-400 hover:text-gray-200 text-sm focus:outline-none"
+                  className="-mt-1 text-gray-400 hover:text-gray-200 text-sm focus:outline-none border-1 border-gray-400 rounded-lg hover:bg-gray-700 w-10 h-10"
                 >
-                  ✖️ Cerrar
+                  ✖️ 
                 </button>
                 </div>
-                  <h3 className="text-xl font-bold text-white">{skills[activeSkill].title}</h3>
+                  <h3 className="text-xl font-bold text-white mt-2">{skills[activeSkill].title}</h3>
                   <p className="text-gray-300 mt-1">{skills[activeSkill].description}</p>
                 </div>
               </div>
@@ -253,15 +265,15 @@ export default function SkillTree() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {skills[activeSkill].technologies.map((tech, index) => (
-                    <div key={index} className="bg-gray-700 rounded-lg p-4 ">
+                    <div key={index} className="bg-gray-700/30  rounded-lg p-4 ">
                       
-                      <div className="flex justify-between items-center mb-2 ">
+                      <div   className="flex justify-between items-center mb-2 ">
                         <div className="flex items-center ">
                           <i className={`${tech.iconClass} text-2xl text-white mr-2 `} /> {/* Ícono de Devicon */}
                           <span className="font-medium text-white ">{tech.name}</span>
                         </div>
                      
-                      </div>
+                      </div >
                       <p className="text-gray-300 text-sm hover:text-yellow-400">{tech.description}</p>
                     </div>
                   ))}

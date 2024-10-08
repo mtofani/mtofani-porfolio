@@ -27,17 +27,20 @@ const { title, company, description, link, date, milestones } = Astro.props
       <time class="p-0 m-0 text-sm text-gray-600/80 dark:text-white/80">{date}</time>
     </div>
   </div>
-  <div class="relative flex flex-col gap-2 pb-4 text-gray-600 max-w-prose dark:text-gray-300 md:col-span-3 whitespace-pre-line leading-loose">
+  <div class="relative flex flex-col gap-2 p-2 text-gray-600 max-w-prose dark:text-gray-300 md:col-span-3 whitespace-pre-line leading-loose">
     {description}
     
-    <strong class="py-2 max-w-prose text-sm text-yellow-400 whitespace-pre-line leading-loose">{milestones}</strong>
+    <strong class="py-2 max-w-prose text-sm  text-yellow-400 whitespace-pre-line leading-loose">{milestones}</strong>
     {
       link && (
-        <LinkInline href={link}>
-          Saber más{" "}
+
+    
+        <LinkInline  href={link}>
+          
+        
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="w-5 icon icon-tabler icon-tabler-chevron-right"
+            class="icon icon-tabler icon-tabler-chevron-right"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -46,13 +49,16 @@ const { title, company, description, link, date, milestones } = Astro.props
             fill="none"
             stroke-linecap="round"
             stroke-linejoin="round"
-          >
+          > 
             <>
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M9 6l6 6l-6 6" />
             </>
           </svg>
+        
         </LinkInline>
+        
+      
       )
     }
   </div>

@@ -1,11 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-import '@/styles/globals.css'
+import '../styles/globals.css'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Database, Cloud, Server, Brain, Code, Cpu, Phone } from "lucide-react"
-import ExperienceCarousel from '../components/ExperienceCarousel';
+
 import Hero from "@/components/Hero.astro"
 import LinkInLine from "@/components/LinkInline.astro"
 import SectionContainer from "@/components/SectionContainer.astro"
@@ -13,6 +13,7 @@ import Link from '@/components/icons/Link.astro';
 import Experience from '@/components/Experience.astro'
 import SkillTree from '@/components/Tree.jsx'; // Importa el componente React
 import Mentoring from '@/components/Mentoring.jsx'; // Importa el componente React
+import Certifications from '@/components/Certifications.jsx'; // Importa el componente React
 
 
 // Función para obtener el ícono correcto
@@ -87,9 +88,9 @@ const experiencias = [
 
 
 <Layout title="MT - Soluciones Tecnológicas Innovadoras" description='El portafolio'>
-<div class="text-white ">
+<div class=" max-w-full">
 
-    <main class="bg-gradient-to-br from-gray-900 to-gray-800 container px-6">
+  <main class="bg-gradient-to-br from-gray-900/10 via-gray-800 to-purple-950/20 container px-6">
 		<SectionContainer>
 				<Hero></Hero>
 		</SectionContainer>
@@ -131,13 +132,19 @@ const experiencias = [
       </section>
       
 
-    <section class="min-h-screen flex items-center justify-center">
+    <section class="bmin-h-screen flex items-center justify-center">
       <div class="container mx-auto px-6">
         
         <SkillTree   client:load/>  <!-- Usa el componente React aquí -->
       </div>
     </section>
+
+    
     <Mentoring></Mentoring>
+ 
+    <Certifications client:load ></Certifications>
+  
+
 
 
        

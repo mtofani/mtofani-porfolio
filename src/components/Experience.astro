@@ -7,8 +7,8 @@ const EXPERIENCE = [
     title: "IT Consultant",
     company: "MT",
     description:
-      "Me trabajando como consultor externo en un proyecto con IBM y un ISP, en dos verticales: Multitenancy observability en HA para customers y Network Automation, utilizando tecnologías como IBM Sevone NPM y IBM Rapid Network Automatio",
-    link: "www.google.com",
+      "Me encuentro trabajando como consultor externo en un proyecto con IBM y un ISP, en dos verticales: Multitenancy observability en HA para customers y Network Automation, utilizando tecnologías como IBM Sevone NPM y IBM Rapid Network Automation",
+  
   },
 
   {
@@ -48,13 +48,13 @@ const EXPERIENCE = [
 ---
 
 <div class="mb-4">
-  <button id="toggle-btn" class="bg-dark-700 text-white px-4 py-2  transition-all duration-700 ease-in-out transform hover:scale-105 hover:text-yellow-300 hover:bg-purple-500 border-1 border border-purple-500 rounded-full text-xs text-font-bold">
+  <button id="toggle-btn" class="bg-dark-700 text-white px-4 py-2  transition-all duration-700 ease-in-out transform hover:scale-105  hover:bg-purple-700 border-1 border border-purple-500 rounded-full text-xs text-font-bold">
     Mostrar mas
   </button>
   
 </div>
 
-<ol id="experiencia" class="relative mt-6 px-6transition-opacity duration-500 ease-in">
+<ol id="experiencia" class="relative mt-6 px-6 transition-opacity duration-500 ease-in">
 
   {EXPERIENCE.map((experience, index) => (
     <li class={`${index >= 2 ? 'hidden' : ''} ${index >= 2 ? 'opacity-0' : ''} transition-opacity duration-500 ease-in`}>
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
           exp.classList.add('opacity-0');
           setTimeout(() => fadeIn(exp), 10);
           window.scrollBy({
-            top: 300,
+            top: 500,
             behavior: 'smooth'
           });
         } else {
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
-    toggleBtn.textContent = showMore ? 'Mostrar menos' : 'Mostrar mas';
+    toggleBtn.textContent = showMore ? 'Ocultar' : 'Mostrar mas';
   });
 });
 </script>

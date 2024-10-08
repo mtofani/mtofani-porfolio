@@ -58,4 +58,13 @@ export default {
     	}
     },
 	plugins: [require("tailwindcss-animate")],
+	safelist: [
+		'bg-green-500',
+		'bg-red-500',
+		'bg-blue-700',
+		'bg-orange-400',
+		'bg-yellow-500',
+		'bg-cyan-500',
+		'bg-blue-500',
+	  ],
 }

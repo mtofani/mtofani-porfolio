@@ -15,7 +15,7 @@ const getIcon = (iconName) => {
       return <Database className="w-6 h-6 " />
       ;
     case 'Cloud':
-      return <Cloud className="w-6 h-6" />
+      return <Cloud className="w-6 h-6 text-white" />
     case 'Brain':
       return <Brain className="w-6 h-6" />;
     case 'Code':
@@ -80,10 +80,10 @@ export default function SkillTree() {
     <section className="py-20">
       <div id="skills" className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center text-white">Skills</h2>
-        <h3 className="text-lg font-bold text-center text-transparent mb-8 bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+        <h3 className="text-3xl pt-5 font-bold text-center text-transparent mb-8 bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
           Clickea en ellas para saber más
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20 mb-8 py-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-20 mb-8 py-10">
           {skills.map((skill, index) => (
             <motion.div
               key={index}
@@ -114,7 +114,7 @@ export default function SkillTree() {
                
                 <div id="techdetailed">
                   <div className="flex">
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${skills[activeSkill].color} mr-4`}>
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${skills[activeSkill].color} mr-4 border-2 border-yellow-500`}>
                       {getIcon(skills[activeSkill].icon)}
                     </div>
                     <button

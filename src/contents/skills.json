@@ -1,7 +1,7 @@
 [
     {
       "icon": "Server",
-      "color": "bg-blue-700",
+      "color": "bg-purple-700",
       "title": "Telco & Operating Systems",
       "description": "Especialista en la administración de sistemas operativos y redes en el sector de telecomunicaciones, con un fuerte enfoque en la mejora de la eficiencia y el rendimiento.",
       "technologies": [
@@ -30,7 +30,7 @@
     },
     {
       "icon": "Database",
-      "color": "bg-cyan-500",
+      "color": "bg-orange-500",
       "title": "Database, Streaming & Cache",
       "description": "Especializado en sistemas de datos de alto rendimiento y escalables.",
       "technologies": [
@@ -76,7 +76,7 @@
     },
     {
       "icon": "Cloud",
-      "color": "bg-blue-500",
+      "color": "bg-blue-400",
       "title": "Cloud & Microservices",
       "description": "Arquitecto de soluciones certificado en AWS , cloud nativas y microservicios.",
       "technologies": [
@@ -121,7 +121,7 @@
     },
     {
       "icon": "Brain",
-      "color": "bg-green-500",
+      "color": "bg-black",
       "title": "Machine Learning & AI",
       "description": "Te ayudamos a integrar IA en tu empresa usando herramientas como: OpenAI, Bedrock y SageMaker. Implementamos modelos y bots a medida para optimizar procesos y hacer que todo funcione de manera más eficiente.",
       "technologies": [
@@ -209,7 +209,7 @@
     },
     {
       "icon": "Globe",
-      "color": "bg-orange-400",
+      "color": "bg-red-600",
       "title": "Automation & DevOps",
       
       "description": "Implementación de prácticas de DevOps y CI/CD.",

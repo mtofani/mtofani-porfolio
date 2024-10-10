@@ -8,7 +8,7 @@ export default function EnhancedMinimalistMentoringDonation() {
     <section id ="mentoring" className="">
       <div className="container mx-auto px-4">
        
-      <h2 className="text-4xl font-extrabold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+      <h2 className="text-4xl font-extrabold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
           Mentoría y Apoyo
         </h2>
      
@@ -35,7 +35,7 @@ export default function EnhancedMinimalistMentoringDonation() {
               <div className="flex items-center space-x-2">
                 <Calendar className="text-primary" />
                 <span>Sesiones flexibles de 30 o 60 minutos</span>
-              </div>
+              </div>  
               <div className="flex items-center space-x-2">
                 <MessageSquare className="text-primary" />
                 <span>Chat en vivo durante la sesión</span>

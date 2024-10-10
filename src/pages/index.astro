@@ -2,9 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 
 import '../styles/globals.css'
-import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Database, Cloud, Server, Brain, Code, Cpu, Phone } from "lucide-react"
+import { Database, Cloud, Server, Brain, Code, Cpu } from "lucide-react"
 
 import Hero from "@/components/Hero.astro"
 import LinkInLine from "@/components/LinkInline.astro"
@@ -88,7 +87,7 @@ const experiencias = [
 
 
 <Layout title="MT - Soluciones Tecnológicas Innovadoras" description='El portafolio'>
-<div class=" max-w-full">
+<div class="max-w-screen-xl mx-auto">
 
   <main class="bg-gradient-to-br from-gray-900/10 via-gray-800 to-purple-950/20 container px-6">
 		<SectionContainer>
@@ -165,7 +164,7 @@ const experiencias = [
       }
 
       body {
-        color: rgba(17, 17, 17, 0.9);
+        color: rgba(241, 237, 237, 0.9);
         display: flex;
         flex-direction: column;
         min-height: 100vh;

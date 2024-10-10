@@ -1,13 +1,13 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro"
-import { ChevronDown, ChevronUp } from "lucide-react"
+
 const EXPERIENCE = [
   {
     date: "Actualmente...",
     title: "IT Consultant",
     company: "MT",
     description:
-      "Me encuentro trabajando como consultor externo en un proyecto con IBM y un ISP, en dos verticales: Multitenancy observability en HA para customers y Network Automation, utilizando tecnologías como IBM Sevone NPM y IBM Rapid Network Automation",
+      "Me encuentro trabajando como consultor externo en un proyecto con IBM y un ISP, en dos verticales: Multitenancy observability en HA para creacion de nuevo producto orientado a customers y Network Automation, utilizando tecnologías como IBM Sevone NPM y RNA",
   
   },
 
@@ -18,24 +18,26 @@ const EXPERIENCE = [
     description:
       "• Investigación, desarrollo y diseño de plataformas innovadoras que impulsan la transformación digital en los departamentos de Ingeniería y Operaciones.\n•  Programa de mentoring en DevOps, reentrenando colegas, operadores y desarrolladores."
    ,
-    milestones: "Hitos: Projecto IPLAN WholeSaler (Integración con aliados ISPs sobre red GPON) \n Cliente:  Telefonica Argentina. \n En solo 4 meses, como Arquitecto/Tech Lead, lideré la construcción & integración de sistemas de IPLAN Mayorista (Fault & Diagnostics). Coordinando desarrollo interno y externo con la factory Semperti utilizando tecnologías como Flask-RESTx, APIGW Sprigboot, Docker, Openshift, Kafka, entre otras."
+    milestones: "Hitos:\n Proyecto: IPLAN WholeSaler \n Objetivo: Construcción de sistemas para integracion con ISP aliados sobre red GPON\n Cliente: Cliente - Telefonica Argentina.\n En solo 4 meses, como Arquitecto, lideré el diseño, construcción & integración de sistemas orientado a microservicios de IPLAN Mayorista (Fault & Diagnostics). Coordinando desarrollo interno y externo con la factory Semperti utilizando tecnologías como Flask-RESTx, APIGW Sprigboot, Docker, Openshift, Kafka, entre otras."
   },
   {
     date: "May 2021 - Sept 2022",
     title: "(External) IT Consultant",
     company: "SITS - PandoraFMS ",
     description:
-      "Lideré el proceso de investigación para el cliente ARTICA en la adopción de QA Automation (e2e) para los releases de su producto de monitorizacion PANDORAFMS y participé en los procesos de mejorar de las mesas de ayuda para LATAM incoporando KR, software rRequests e integraciones."
+      "Lideré el proceso de investigación para el cliente ARTICA en la adopción de QA Automation (e2e) para los releases de su producto de monitorizacion PANDORAFMS y participé en los procesos de mejorar de las mesas de ayuda para LATAM incoporando KB, Software Requests y participación en propuestas del Roadmap del cliente e integraciones."
   },
   {
     date: "Oct 2019 - Jun 2022",
     title: "Software Engineer",
     company: "IPLAN NSS",
     description:
-      "Diseñé arquitectura de las plataformas de monitoreo, reemplazando las soluciones de Fault & Performance de toda la compañia, cubriendo más de 3.000 dispositivos y reduciendo los costos anuales en un 88% del budget. También la automatización de integraciones de API REST y Webhooks utilizando Python y JavaScript. Además, impulsé iniciativas de I+D para la adopción de nuevas tecnologías, optimizando la eficiencia operativa.​"
+      "Diseñé arquitectura de las plataformas de monitoreo, reemplazando las soluciones de Fault & Performance de toda la compañia, cubriendo más de 3.000 dispositivos y reduciendo los costos anuales en un 88% del budget. También trabajé la automatización de integraciones de API REST y Webhooks utilizando Python y JavaScript. Además, impulsé iniciativas de I+D para la adopción de nuevas tecnologías, optimizando la eficiencia operativa.​"
   ,
-   milestones: "Hitos: Lidere la adopción y construcción de APIs REST dentro de la compañia, disponibilizando servicios con Flask-RESTx, integrando con sistemas de IPLAN y otros convirtiendolo el framework de desarrollo de APIs de IPLAN conectando tanto sistemas actuales como legacy"
+   milestones: "Hitos: Lidere la adopción y construcción de APIs REST dentro de la compañia, disponibilizando servicios con Flask-RESTx, integrando con sistemas de IPLAN y otros convirtiendolo el framework de desarrollo de APIs de IPLAN conectando tanto sistemas actuales como legacy\n Caso de exito Reemplazo de Fault & Performance por PandoraFMS ",
+   link: "https://pandorafms.com/es/casos-de-clientes/iplan/"
   },
+
   {
     date: "Oct 2011 - Jun 2019",
     title: "NMS Analyst",
@@ -48,7 +50,7 @@ const EXPERIENCE = [
 ---
 
 <div class="mb-4">
-  <button id="toggle-btn" class="bg-dark-700 text-white px-4 py-2  transition-all duration-700 ease-in-out transform hover:scale-105  hover:bg-purple-700 border-1 border border-purple-500 rounded-full text-xs text-font-bold">
+  <button id="toggle-btn" class="bg-dark-700 text-white px-4 py-2 transition-all duration-700 ease-in-out transform hover:scale-105  hover:bg-purple-700 border-1 border border-purple-500 rounded-full text-xs text-font-bold">
     Mostrar mas
   </button>
   
@@ -57,7 +59,7 @@ const EXPERIENCE = [
 <ol id="experiencia" class="relative mt-6 px-6 transition-opacity duration-500 ease-in">
 
   {EXPERIENCE.map((experience, index) => (
-    <li class={`${index >= 2 ? 'hidden' : ''} ${index >= 2 ? 'opacity-0' : ''} transition-opacity duration-500 ease-in`}>
+    <li class={`${index >=2 ? 'hidden' : ''} ${index >= 2 ? 'opacity-0' : ''} transition-opacity duration-500 ease-in`}>
       <ExperienceItem
         date={experience.date}
         title={experience.title}
@@ -69,6 +71,7 @@ const EXPERIENCE = [
     </li>
   ))}
 </ol>
+
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -97,6 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           exp.classList.add('hidden');
           exp.classList.remove('opacity-100');
+         
+          
         }
       }
     });

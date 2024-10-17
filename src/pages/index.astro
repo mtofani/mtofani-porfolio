@@ -1,237 +1,123 @@
 ---
+// Imports
 import Layout from '../layouts/Layout.astro';
+import '../styles/globals.css';
 
-import '../styles/globals.css'
-import { Card, CardContent } from "@/components/ui/card"
-import { Database, Cloud, Server, Brain, Code, Cpu } from "lucide-react"
-
-import Hero from "@/components/Hero.astro"
-import LinkInLine from "@/components/LinkInline.astro"
-import SectionContainer from "@/components/SectionContainer.astro"
-import Link from '@/components/icons/Link.astro';
-import Experience from '@/components/Experience.astro'
-import SkillTree from '@/components/Tree.jsx'; // Importa el componente React
-import Mentoring from '@/components/Mentoring.jsx'; // Importa el componente React
-import Certifications from '@/components/Certifications.jsx'; // Importa el componente React
-import CompactRoles from '@/components/CompactRoles'; // Importa el componente React
+import Hero from "@/components/Hero.astro";
+import LinkInLine from "@/components/LinkInline.astro"; 
+import SectionContainer from "@/components/SectionContainer.astro";
+import Link from '@/components/icons/Link.astro'; 
+import Experience from '@/components/Experience.astro'; 
+import SkillTree from '@/components/Tree.jsx'; // React component
+import Mentoring from '@/components/Mentoring.jsx'; // React component
+import Certifications from '@/components/Certifications.jsx'; // React component
+import Projects from '@/components/Projects.astro';
 import Roles from '@/components/Roles';
+import Services from '@/components/Services.astro';
 
-// Función para obtener el ícono correcto
-function getIcon(iconName) {
-  switch (iconName) {
-    case "Database":
-      return Database
-    case "Cloud":
-      return Cloud
-    case "Server":
-      return Server
-    case "Brain":
-      return Brain
-    case "Code":
-      return Code
-    default:
-  
-  }
-}
 
-const services = [
-  { 
-    icon: 'Code',
-    title: "Desarrollo Avanzado",
-    description: "Soluciones de software innovadoras utilizando las últimas tecnologías del mercado."
-  },
-  {
-    icon: 'Server',
-    title: "Arquitectura de Soluciones",
-    description: "Diseño de sistemas escalables y de alto rendimiento para empresas en crecimiento."
-  },
-  {
-    icon: 'Cpu',
-    title: "Integración de IA",
-    description: "Implementación de soluciones de IA y aprendizaje automático para optimizar procesos empresariales."
-  },
-  {
-    icon: 'Cloud',
-    title: "Transformación Digital",
-    description: "Guía estratégica para la adopción de tecnologías cloud y prácticas DevOps."
-  }
-];
-
-const experiencias = [
-  {
-    icon: "CloudIcon",
-    titulo: "Desarrollo y Arquitectura",
-    descripcion: "Más de 12 años de experiencia en desarrollo y arquitectura de sistemas.",
-    color: "text-blue-400"
-  },
-  {
-    icon: "RocketIcon",
-    titulo: "Liderazgo en Transformación Digital",
-    descripcion: "Liderazgo en proyectos de transformación digital para empresas Fortune 500.",
-    color: "text-green-400"
-  },
-  {
-    icon: "CloudIcon",
-    titulo: "Experto en Cloud y DevOps",
-    descripcion: "Experto en tecnologías cloud (AWS, GCP) y prácticas DevOps.",
-    color: "text-purple-400"
-  },
-  {
-    icon: "BrainCircuitIcon",
-    titulo: "IA y Machine Learning",
-    descripcion: "Implementación exitosa de soluciones de IA y Machine Learning en diversos sectores.",
-    color: "text-red-400"
-  },
-]
 ---
 
-
-
 <Layout title="MT - Soluciones Tecnológicas Innovadoras" description='El portafolio'>
-<div class="max-w-screen-xl mx-auto">
+    <div class="max-w-screen-xl mx-auto">
+        <main class="bg-gradient-to-br from-gray-900/10 via-gray-800 to-purple-950/20 container px-6">
+            <SectionContainer>
+                <Hero />
+            </SectionContainer>
 
-  <main class="bg-gradient-to-br from-gray-900/10 via-gray-800 to-purple-950/20 container px-6">
-		<SectionContainer>
-				<Hero></Hero>
-		</SectionContainer>
+            <SectionContainer>
+                <Roles />
+            </SectionContainer>
 
+            <Services />
 
-    <SectionContainer>
-    
-       </SectionContainer>
-       <SectionContainer>
-       <Roles></Roles>
-       </SectionContainer>
-     
+            <section class="min-h-screen flex items-center justify-center">
+                <div class="container mx-auto px-6">
+                    <SkillTree client:load />
+                </div>
+            </section>
 
-      
-       <section id="servicios" class="bg-gray py-20">
-        <div class="container mx-auto px-6">
-          <h2 class="text-4xl font-bold text-center mb-16">Servicios</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {services.map((service, index) => (
-              <Card key={index} className="bg-gray-700 text-white-100 text-md overflow-hidden group transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl">
-                <CardContent className="p-6 relative z-10">
-                  <div class="flex flex-col items-center text-center relative z-10">
-                    <div class="mb-4 transition-transform duration-300 ease-in-out transform group-hover:scale-110 group-hover:text-purple-300">
-                      {service.icon === 'Code' && <Code client:load className="h-12 w-12 text-blue-400 group-hover:text-purple-300" />}
-                      {service.icon === 'Server' && <Server client:load className="h-12 w-12 text-green-400 group-hover:text-purple-300" />}
-                      {service.icon === 'Cpu' && <Cpu client:load className="h-12 w-12 text-purple-400 group-hover:text-purple-300" />}
-                      {service.icon === 'Cloud' && <Cloud client:load className="h-12 w-12 text-red-400 group-hover:text-purple-300" />}
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2 transition-colors duration-300 ease-in-out group-hover:text-purple-300">{service.title}</h3>
-                    <p class="text-gray-300 transition-colors duration-300 ease-in-out group-hover:text-white">
-                      {service.description}
-                      {service.title === "Transformación Digital" && (
-                        <span class="block text-purple-300 mt-2">Estrategia y Gestión de Proyectos Tecnológicos.</span>
-                      )}
-                    </p>
-                  </div>
-                </CardContent>
-                <div class="absolute inset-0 bg-purple-600 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-90"></div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-      
+            <Mentoring />
 
-    <section class="min-h-screen flex items-center justify-center">
-      <div class="container mx-auto px-6">
-        
-        <SkillTree client:load/> 
-    </section>
+            <SectionContainer>
+                <Projects />
+            </SectionContainer>
 
-    
-    <Mentoring></Mentoring>
- 
-    <Certifications client:load ></Certifications>
-  
-
-
-
-       
-    </main>
-</div>
-
+            <Certifications client:load />
+        </main>
+    </div>
 </Layout>
 
-
-
-   <style is:global>
-      :root {
+<style is:global>
+    :root {
         color-scheme: light dark;
-      }
+    }
 
-      html {
+    html {
         font-family: "Onest Variable", system-ui, sans-serif;
         scroll-behavior: smooth;
-      }
+    }
 
-      body {
+    body {
         color: rgba(241, 237, 237, 0.9);
         display: flex;
         flex-direction: column;
         min-height: 100vh;
         overscroll-behavior: none;
-      }
+    }
 
-      @media (prefers-reduced-motion: reduce) {
+    @media (prefers-reduced-motion: reduce) {
         html {
-          scroll-behavior: auto;
+            scroll-behavior: auto;
         }
-      }
+    }
 
-      @media (prefers-color-scheme: dark) {
+    @media (prefers-color-scheme: dark) {
         body {
-          color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.9);
         }
-      }
+    }
 
-      #header-nav {
+    #header-nav {
         animation: blur linear both 0.5s;
         animation-timeline: scroll();
         animation-range: 0 500px;
-      }
+    }
 
-      @keyframes blur {
+    @keyframes blur {
         to {
-          backdrop-filter: blur(20px);
-          border-width: 1px;
-          border-color: rgba(0, 0, 0);
-          padding: 0.25rem 0.75rem;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          background-color: rgb(229, 229, 229);
-          border-radius: 9999px;
-        }
-      }
-
-      @media (prefers-color-scheme: dark) {
-        @keyframes blur {
-          from {
-            border: 0px;
-          }
-          to {
-            box-shadow:
-              0px 5px 50px -5px rgba(0, 0, 0, 0.1),
-              0px 0px 0 1px rgba(0, 0, 0, 0.3);
-            background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(20px);
             border-width: 1px;
             border-color: rgba(0, 0, 0);
-            padding-left: 0.75rem;
-            padding-right: 0.75rem;
-            padding-top: 0.25rem;
-            padding-bottom: 0.25rem;
+            padding: 0.25rem 0.75rem;
             display: flex;
             flex-direction: row;
             align-items: center;
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgb(229, 229, 229);
             border-radius: 9999px;
-          }
         }
-      }
-    </style>
+    }
 
+    @media (prefers-color-scheme: dark) {
+        @keyframes blur {
+            from {
+                border: 0px;
+            }
+            to {
+                box-shadow:
+                    0px 5px 50px -5px rgba(0, 0, 0, 0.1),
+                    0px 0px 0 1px rgba(0, 0, 0, 0.3);
+                background: rgba(0, 0, 0, 0.3);
+                backdrop-filter: blur(20px);
+                border-width: 1px;
+                border-color: rgba(0, 0, 0);
+                padding: 0.25rem 0.75rem;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                background-color: rgba(0, 0, 0, 0.3);
+                border-radius: 9999px;
+            }
+        }
+    }
+</style>

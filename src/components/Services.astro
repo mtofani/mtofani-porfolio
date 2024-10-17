@@ -1,0 +1,48 @@
+---
+import { Card, CardContent } from '@/components/ui/card';
+import type { LucideIcon } from 'lucide-react';
+import { Code, Server, Cpu, Cloud, Database, Brain } from 'lucide-react';
+import services from '../contents/services.json';
+
+// Icon mapping
+const iconMap: Record<string, LucideIcon> = {
+    "Database": Database,
+    "Cloud": Cloud,
+    "Server": Server,
+    "Brain": Brain,
+    "Code": Code,
+    "Cpu": Cpu,
+};
+---
+
+<section id="servicios" class="bg-gray py-20">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16">Servicios</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {services.map((service, index) => {
+                const IconComponent = iconMap[service.icon];
+                return (
+                    <Card key={index} className="bg-gray-700 text-white-100 text-md overflow-hidden group transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl">
+                        <CardContent className="p-6 relative z-10">
+                            <div class="flex flex-col items-center text-center relative z-10">
+                                <div class="mb-4 transition-transform duration-300 ease-in-out transform group-hover:scale-110">
+                                    {IconComponent && (
+                                        <IconComponent size={48} className="text-blue-400 group-hover:text-purple-300 transition-colors duration-300" />
+                                    )}
+                                </div>
+                                <h3 class="text-xl font-semibold mb-2 transition-colors duration-300 ease-in-out group-hover:text-purple-300">{service.title}</h3>
+                                <p class="text-gray-300 transition-colors duration-300 ease-in-out group-hover:text-white">
+                                    {service.description}
+                                    {service.title === "Transformación Digital" && (
+                                        <span class="block text-purple-300 mt-2">Estrategia y Gestión de Proyectos Tecnológicos.</span>
+                                    )}
+                                </p>
+                            </div>
+                        </CardContent>
+                        <div class="absolute inset-0 bg-purple-600 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-90"></div>
+                    </Card>
+                );
+            })}
+        </div>
+    </div>
+</section>

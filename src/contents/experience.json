@@ -1,0 +1,26 @@
+[
+    {
+        "icon": "CloudIcon",
+        "titulo": "Desarrollo y Arquitectura",
+        "descripcion": "Más de 12 años de experiencia en desarrollo y arquitectura de sistemas.",
+        "color": "text-blue-400"
+    },
+    {
+        "icon": "RocketIcon",
+        "titulo": "Liderazgo en Transformación Digital",
+        "descripcion": "Liderazgo en proyectos de transformación digital para empresas Fortune 500.",
+        "color": "text-green-400"
+    },
+    {
+        "icon": "CloudIcon",
+        "titulo": "Experto en Cloud y DevOps",
+        "descripcion": "Experto en tecnologías cloud (AWS, GCP) y prácticas DevOps.",
+        "color": "text-purple-400"
+    },
+    {
+        "icon": "BrainCircuitIcon",
+        "titulo": "IA y Machine Learning",
+        "descripcion": "Implementación exitosa de soluciones de IA y Machine Learning en diversos sectores.",
+        "color": "text-red-400"
+    }
+]

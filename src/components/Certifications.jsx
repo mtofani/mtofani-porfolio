@@ -79,7 +79,7 @@ export default function Component() {
 
   return (
     <MotionConfig transition={{ duration: 0.3 }}>
-      <div className="bg-dark-900/50 w-full min-h-screen text-white p-8">
+      <div className="bg-dark-900/50 w-full h-2/3 text-white p-8">
         <h2 className="text-4xl font-extrabold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-500">
           Certificaciones
         </h2>

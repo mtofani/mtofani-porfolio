@@ -102,6 +102,7 @@ export default function Component() {
         <div className="flex justify-center">
           <motion.a
             href="https://www.linkedin.com/in/maximilianotofani/details/certifications/"
+            target="_blank"
             className="text-sm bg-dark border-2 border-purple-500 px-6 py-3 rounded-full"
             whileHover={{ scale: 1.05, backgroundColor: '#44337A' }}
             whileTap={{ scale: 0.95 }}

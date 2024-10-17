@@ -13,7 +13,8 @@ import Experience from '@/components/Experience.astro'
 import SkillTree from '@/components/Tree.jsx'; // Importa el componente React
 import Mentoring from '@/components/Mentoring.jsx'; // Importa el componente React
 import Certifications from '@/components/Certifications.jsx'; // Importa el componente React
-
+import CompactRoles from '@/components/CompactRoles'; // Importa el componente React
+import Roles from '@/components/Roles';
 
 // Función para obtener el ícono correcto
 function getIcon(iconName) {
@@ -96,8 +97,12 @@ const experiencias = [
 
 
     <SectionContainer>
-      <Experience></Experience>
+    
        </SectionContainer>
+       <SectionContainer>
+       <Roles></Roles>
+       </SectionContainer>
+     
 
       
        <section id="servicios" class="bg-gray py-20">

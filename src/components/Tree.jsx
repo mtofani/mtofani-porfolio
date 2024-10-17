@@ -80,8 +80,8 @@ export default function SkillTree() {
     <section className="py-20">
       <div id="skills" className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center text-white">Skills</h2>
-        <h3 className="text-3xl pt-5 font-bold text-center text-transparent mb-8 bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-          Clickea en ellas para saber más
+        <h3 className="text-2xl pt-2 font-bold text-center text-transparent mb-8 bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 animate-pulse">
+        Clickea para saber más  
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-20 mb-8 py-10">
           {skills.map((skill, index) => (
@@ -92,7 +92,7 @@ export default function SkillTree() {
               whileTap={{ scale: 0.95 }}
               onClick={() => handleSkillClick(index)}
             >
-              <motion.div className={`w-16 h-16 rounded-full flex items-center justify-center cursor-pointer hover:border-yellow-400 border border-2 ${skill.color}`}>
+              <motion.div className={`w-16 h-16 rounded-full border- flex items-center justify-center cursor-pointer hover:border-yellow-400 border border-2 ${skill.color}`}>
                 {getIcon(skill.icon)}
               </motion.div>
               <h3 className="text-md font-semibold text-white mt-2 text-center">{skill.title}</h3>
@@ -124,22 +124,22 @@ export default function SkillTree() {
                       ✖️
                     </button>
                   </div>
-                  <h3 className="text-xl font-bold text-white mt-2">{skills[activeSkill].title}</h3>
-                  <p className="text-gray-300 mt-1">{skills[activeSkill].description}</p>
+                  <h3 className="text-2xl pt-3 font-bold text-transparent mb-2 bg-clip-text bg-gradient-to-r from-yellow-400">{skills[activeSkill].title}</h3>
+                  <p className="text-md text-gray-300 prose-md">{skills[activeSkill].description}</p>
                 </div>
               </div>
               <div className="mt-6">
-                <h4 className="text-lg font-semibold text-white mb-3">Tecnologías clave:</h4>
+                <h4 className="text-md font-semibold text-white mb-3">Tecnologías clave:</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {skills[activeSkill].technologies.map((tech, index) => (
-                    <div key={index} className="bg-gray-700/30 rounded-lg p-4">
-                      <div className="flex justify-between items-center mb-2">
+                    <div key={index} className="bg-gray-700/30  rounded-lg p-3 prose">
+                      <div className="flex">
                         <div className="flex items-center">
-                          {tech.component ? <tech.component className="text-2xl text-white mr-2" /> : <i className={`${tech.iconClass} text-2xl text-white mr-2`} />}
-                          <span className="font-medium text-white">{tech.name}</span>
+                          {tech.component ? <tech.component className="text-2xl text-red mr-2 " /> : <i className={`${tech.iconClass} text-2xl text-white mr-2`} />}
+                          <span className="text-lg text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-white ">{tech.name}</span>
                         </div>
                       </div>
-                      <p className="text-gray-300 text-sm hover:text-yellow-400">{tech.description}</p>
+                      <p className="pl-2 text-gray-300 text-sm hover:text-yellow-400">{tech.description}</p>
                     </div>
                   ))}
                 </div>

@@ -23,7 +23,7 @@ export default function EnhancedMinimalistMentoringDonation() {
             />
           </div>
 
-        <div id="finalservices" className="grid gap-4 items-center ">
+        <div id="finalservices" className="grid gap-2 items-center ">
           {/* Mentoring Section */}
 
             <Card className='bg-purple-600/10 p-2 mt-5'>
@@ -60,7 +60,7 @@ export default function EnhancedMinimalistMentoringDonation() {
 
 
                {/* Donation Section */}
-               <div className="bg-purple-600/5 h-min-screen border border-purple-500 p-6 rounded-xl shadow-lg transform transition duration-500 hover:scale-105">
+               <div className="bg-purple-600/5 h-min-screen border border-purple-500 pl-6 p-2 rounded-xl shadow-lg transform transition duration-500 hover:scale-105">
             <div className="flex items-center">
               <h3 className="text-xl font-bold text-yellow-400">Apoya mi trabajo</h3>
               <Coffee className="w-10 h-10 text-yellow-400 p-2" />
@@ -68,7 +68,7 @@ export default function EnhancedMinimalistMentoringDonation() {
             <p className="p-1 text-gray-300 text-md leading-loose">
               Si mi contenido te ha sido útil, considera invitarme a un café!
             </p>
-            <a href='https://cafecito.app/maximilianomt'  className="group inline-flex  items-center rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1"rel='noopener' target='_blank'><img srcset='https://cdn.cafecito.app/imgs/buttons/button_3.png 1x, https://cdn.cafecito.app/imgs/buttons/button_3_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_3_3.75x.png 3.75x' src='https://cdn.cafecito.app/imgs/buttons/button_3.png' alt=' Invitame un café en cafecito.app ' /></a>  
+            <a href='https://cafecito.app/maximilianomt'  className="group inline-flex  items-center rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1"rel='noopener' target='_blank'><img srcSet='https://cdn.cafecito.app/imgs/buttons/button_3.png 1x, https://cdn.cafecito.app/imgs/buttons/button_3_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_3_3.75x.png 3.75x' src='https://cdn.cafecito.app/imgs/buttons/button_3.png' alt=' Invitame un café en cafecito.app ' /></a>  
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 export default function EnhancedMinimalistMentoringDonation() {
   return (
     <section id ="mentoring" className="">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 mt-5">
        
       <h2 className="text-4xl font-extrabold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
           Mentoría y Apoyo

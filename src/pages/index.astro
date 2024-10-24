@@ -11,7 +11,7 @@ import Experience from '@/components/Experience.astro';
 import SkillTree from '@/components/Tree.jsx'; // React component
 import Mentoring from '@/components/Mentoring.jsx'; // React component
 import Certifications from '@/components/Certifications.jsx'; // React component
-import Projects from '@/components/Projects.astro';
+import Projects from '@/components/Projects';
 import Roles from '@/components/Roles';
 import Services from '@/components/Services.astro';
 
@@ -21,7 +21,7 @@ import Services from '@/components/Services.astro';
 <Layout title="MT - Soluciones Tecnológicas Innovadoras" description='El portafolio'>
     <div class="max-w-screen-xl mx-auto">
         <main class="bg-gradient-to-br from-gray-900/10 via-gray-800 to-purple-950/20 container px-6">
-            <SectionContainer>
+         <SectionContainer>
                 <Hero />
             </SectionContainer>
 
@@ -30,18 +30,17 @@ import Services from '@/components/Services.astro';
             </SectionContainer>
 
             <Services />
+            <SectionContainer>
+            <SkillTree client:load />
+          </SectionContainer>
+            
 
-            <section class="min-h-screen flex items-center justify-center">
-                <div class="container mx-auto px-6">
-                    <SkillTree client:load />
-                </div>
-            </section>
-
-            <Mentoring />
+         
 
             <SectionContainer>
-                <Projects />
+                <Projects client:load />
             </SectionContainer>
+            <Mentoring /> 
 
             <Certifications client:load />
         </main>

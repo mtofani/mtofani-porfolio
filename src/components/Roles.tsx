@@ -1,4 +1,4 @@
-import React from 'react'
+
 import RolesItem from './RolesItem'
 import roles from '../contents/roles.json'
 export default function Roles() {

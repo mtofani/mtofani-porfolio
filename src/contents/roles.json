@@ -88,7 +88,7 @@
       "Automatización de integraciones",
       "Optimización de eficiencia operativa"
     ],
-    "technologies": ["Flask-RESTx","Docker","Kubernetes", "Python", "JavaScript", "PandoraFMS","Prometheus/Grafana","NodeJS","MongoDB","NGINX","Ansible"],
+    "technologies": ["Flask-RESTx","Docker","Kubernetes", "Python",  "PandoraFMS","Prometheus", "Grafana","NodeJS","MongoDB","NGINX","Ansible"],
     "achievements": [
       {
         "title": "Caso de Exito - PandoraFMS - Reemplazo de Fault & Performance",

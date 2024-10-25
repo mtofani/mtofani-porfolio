@@ -77,7 +77,7 @@ export default function SkillTree() {
   }, [activeSkill]);
 
   return (
-    <section className="py-20">
+    <section className="py-10">
       <div id="skills" className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center text-white">Skills</h2>
         <h3 className="text-2xl pt-2 font-bold text-center text-transparent mb-8 bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 animate-pulse">

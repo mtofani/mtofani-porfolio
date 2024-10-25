@@ -8,7 +8,7 @@ export default function EnhancedMinimalistMentoringDonation() {
     <section id ="mentoring" className="">
       <div className="container mx-auto px-4 mt-5">
        
-      <h2 className="text-4xl font-extrabold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+      <h2 className="text-4xl font-extrabold text-center mb-5 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
           Mentoría y Apoyo
         </h2>
      

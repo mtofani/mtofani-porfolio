@@ -1,0 +1,45 @@
+[
+    {
+      "title": "Management & Diseño de Arquitectura",
+      "subtitle": "🏆 Caso de Éxito: IPLAN - PandoraFMS - Diseño de Solución, Personalización e Integraciones",
+      "hide": false,
+      "description": "Proyecto de reemplazo de la solución Fault & Performance en IPLAN con PandoraFMS, monitoreando +3000 equipos, desde el backbone del ISP hasta hardware específico de DataCenter. Desarrollé plugins personalizados, como notificaciones en Telegram. Integraciones para Discovery SNMP, API, SelfMonitoring, QA Automation y Webhooks, incorporados luego a la librería oficial de Artica.",
+      "keyPoints": [
+        "HA Clusters",
+       "Reducción del 88% costo anual",
+        "> 60K variables (~250/seg)",
+        "> 30-40K eventos diarios",
+        "storms de eventos 100/seg",
+        "Dev & integraciones"
+      ],
+      "link": "https://pandorafms.com/es/casos-de-clientes/iplan/",
+      "media": {
+        "type": "image",
+        "src": "/PandoraFMS-Consola.jpg?height=450&width=800"
+      },
+      "tags": [
+        "Networking","API","PYTHON","JS"
+      ]
+    },
+    {
+      "title": "IA - RAG CHAT - Chat con tus documentos",
+      "subtitle": "🤖 RAG Chat - LLM OpenSource",
+      "hide": false,
+      "description": "RAG Chat es un prototipo funcional que garantiza la privacidad, utilizando un modelo LLM open source en Local. Permite búsquedas vectoriales rápidas con FAISS, subida de archivos y ajuste de parámetros, funcionando eficientemente en CPU. Desarrollado con Streamlit y Python para un control total de los datos",
+      "keyPoints": [
+        "Opensource",
+        "Sin costo de suscripción/uso",
+        "LLM Local",
+        "Datos seguros y privados"
+      ],
+      "media": {
+        "type": "video",
+        "src": "/demo.mp4"
+      },
+      "tags": [
+        "PYTHON",
+        "HUGGINGFACE"
+      ]
+    }  
+  ]
+  

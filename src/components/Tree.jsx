@@ -92,10 +92,12 @@ export default function SkillTree() {
               whileTap={{ scale: 0.95 }}
               onClick={() => handleSkillClick(index)}
             >
-              <motion.div className={`w-16 h-16 rounded-full border-1 border-gray-700 flex items-center justify-center cursor-pointer hover:border-yellow-400 border border-2 ${skill.color}`}>
+              <motion.div className={`w-16 h-16 rounded-full border-2 border-gray-700 flex items-center justify-center cursor-pointer hover:border-yellow-400 border border-2 ${skill.color}`}>
                 {getIcon(skill.icon)}
               </motion.div>
-              <h3 className="text-md font-semibold text-white mt-2 text-center">{skill.title}</h3>
+              <h3 
+               onClick={() => handleSkillClick(index)}
+               className="text-md font-semibold text-white mt-2 text-center">{skill.title}</h3>
             </motion.div>
           ))}
         </div>

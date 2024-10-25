@@ -28,7 +28,7 @@ const tagComponents = {
 };
 
 const Tags = ({ tags }) => (
-  <div className="flex flex-wrap gap-2 mb-4 mt-3">
+  <div className="flex gap-2 mb-4 mt-3">
     {tags.map((tagKey, tagIndex) => {
       const tagInfo = tagComponents[tagKey];
 

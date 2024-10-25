@@ -28,7 +28,7 @@ export default function EnhancedMinimalistMentoringDonation() {
 
             <Card className='bg-purple-600/10 p-2 mt-5'>
             <CardHeader >
-              <CardTitle className='text-xl'>Asesoramiento Personalizado</CardTitle>
+              <CardTitle className='text-2xl'>Asesoramiento Personalizado</CardTitle>
               <CardDescription>Agenda tu sesión en Calendly y resolvamos tus dudas o las de tu equipo.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -61,14 +61,21 @@ export default function EnhancedMinimalistMentoringDonation() {
 
                {/* Donation Section */}
                <div className="bg-purple-600/5 h-min-screen border border-purple-500 pl-6 p-2 rounded-xl shadow-lg transform transition duration-500 hover:scale-105">
-            <div className="flex items-center">
-              <h3 className="text-xl font-bold text-yellow-400">Apoya mi trabajo</h3>
-              <Coffee className="w-10 h-10 text-yellow-400 p-2" />
+            <div className="flex flex-col items-center justify-center">
+              <div className='flex flex-row items-center justify-start'>
+  
+            <h3 className="text-xl font-bold text-yellow-400">Apoya mi trabajo </h3>
+            <Coffee className="w-10 h-10 text-yellow-400 p-2" />
             </div>
-            <p className="p-1 text-gray-300 text-md leading-loose">
+
+              
+              <p className="p-2 text-gray-300 text-md leading-loose">
               Si mi contenido te ha sido útil, considera invitarme a un café!
             </p>
-            <a href='https://cafecito.app/maximilianomt'  className="group inline-flex  items-center rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1"rel='noopener' target='_blank'><img srcSet='https://cdn.cafecito.app/imgs/buttons/button_3.png 1x, https://cdn.cafecito.app/imgs/buttons/button_3_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_3_3.75x.png 3.75x' src='https://cdn.cafecito.app/imgs/buttons/button_3.png' alt=' Invitame un café en cafecito.app ' /></a>  
+            <a href='https://cafecito.app/maximilianomt'  className="group inline-flex mb-2 mt-2 items-center rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1"rel='noopener' target='_blank'><img srcSet='https://cdn.cafecito.app/imgs/buttons/button_3.png 1x, https://cdn.cafecito.app/imgs/buttons/button_3_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_3_3.75x.png 3.75x' src='https://cdn.cafecito.app/imgs/buttons/button_3.png' alt=' Invitame un café en cafecito.app ' /></a>  
+
+            </div>
+           
             </div>
           </div>
         </div>

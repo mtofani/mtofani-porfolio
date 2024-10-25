@@ -8,16 +8,16 @@ import Tags from "./Tags"
 
 const iconMap = {
   "Multitenancy observability": <Server className="h-5 w-5" />,
-  "Dev": <Code className="h-5 w-5" />,
+  "Dev": <Code className="h-5 w-5 text-yellow-300" />,
   "Opensource": <Code className="h-5 w-5" />,
   "Local": <Server className="h-5 w-5" />, 
    "variables": <Zap className="h-5 w-5" />,
   "Investigación y desarrollo de plataformas innovadoras": <SearchCode className="h-5 w-5" />,
-  "costo": <CircleDollarSign className="h-5 w-5" />,
-  "Datos seguros": <BookHeart className="h-5 w-5" />,  
+  "costo": <CircleDollarSign className="h-5 w-5 text-green-500" />,
+  "Datos seguros": <BookHeart className="h-5 w-5 text-yellow-500" />,  
   "seg": <Timer className="h-5 w-5" />,
-  "Eventos" : <Zap className="h-5 w-5" />,
-  "Cluster" : <Boxes className="h-5 w-5" />,
+  "Eventos" : <Zap className="h-5 w-5 text-yellow-700" />,
+  "Cluster" : <Boxes className="h-5 w-5 text-yellow-500" />,
   
   
 }
@@ -80,17 +80,17 @@ const toggleProjects = () => {
   }
 
   return (
-    <div className="space-y-5 container mx-auto px-4">
+    <div className="space-y-5 container mx-auto px-4 ">
       <h3 className="text-4xl font-extrabold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-500">
         Proyectos
       </h3>
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2  rounded-xl">
         {PROJECTS.slice(0, visibleProjects).map((project, index) => (
-          <Card key={index} className="flex flex-grow flex-col justify-between overflow-hidden  bg-purple-700/10 p-1 ">
+          <Card key={index} className="flex flex-grow flex-col  overflow-hidden  bg-purple-700/10 p-1  border border-purple-700/40 ">
             <CardHeader>
-              <CardTitle className="text-2xl">{project.title}</CardTitle>
+              <CardTitle className="text-2xl ">{project.title}</CardTitle>
             </CardHeader>
-            <CardContent className="px-10">
+            <CardContent className=" mt-[2vw] px-10">
               <div className="space-y-12">
                 <div className="relative aspect-video overflow-hidden rounded-lg">
                   {project.media.type === "image" ? (
@@ -111,14 +111,16 @@ const toggleProjects = () => {
                 </div>
                 <div>
                   <h3 className="text-semibold text-yellow-500">{project.subtitle}</h3>
-                  <p className="text-sm mt-2 mb-8 leading-relaxed">{project.description}</p>
-                  <Card id="keypoints" className="mt-5 grid md:grid-cols-4 items-center justify-around bg-purple-700/15 p-2">
+                  <p className="text-sm mt-[2vw]  leading-relaxed">{project.description}</p>
+                  <Card id="keypoints" className="mt-[4vw]  grid md:grid-cols-4 items-center justify-around bg-purple-700/15 p-2">
                         
                   { project.keyPoints?.map((keypoint,index) => (
-                      <CardContent className="flex flex-col items-center justify-center text-center text-xs gap-1 p-2">
+                      <CardContent className="flex flex-col items-center justify-center text-center text-xs gap-2 p-2">
                    
                       {getIconForKeyPoint(keypoint)}
+                      <span id="kpoint">
                        {keypoint}
+                       </span>
                       
                        </CardContent>
 
@@ -130,8 +132,8 @@ const toggleProjects = () => {
                   
                    </Card>
                    </div>
-                  <div className="flex flex-col border-t-yellow-500 ">
-                      <div className="items-center">Tecnologías utilizadas
+                  <div className="flex flex-col md:items-start items-center  border-t-yellow-500 ">
+                      <div className="items-center p-2">Tecnologías utilizadas
                       <Tags tags={project?.tags} />
                       </div>
                   </div>

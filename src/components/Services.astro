@@ -18,11 +18,11 @@ const iconMap: Record<string, LucideIcon> = {
 <section id="servicios" class="bg-gray py-20">
     <div class="container mx-auto px-6">
         <h2 class="text-4xl font-bold text-center mb-16">Servicios</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ">
             {services.map((service, index) => {
                 const IconComponent = iconMap[service.icon];
                 return (
-                    <Card key={index} className="bg-gray-700 text-white-100 text-md overflow-hidden group transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl">
+                    <Card key={index} className="border border-purple-700/50 bg-gray-700 text-white-100 text-md overflow-hidden group transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl">
                         <CardContent className="p-6 relative z-10">
                             <div class="flex flex-col items-center text-center relative z-10">
                                 <div class="mb-4 transition-transform duration-300 ease-in-out transform group-hover:scale-110">

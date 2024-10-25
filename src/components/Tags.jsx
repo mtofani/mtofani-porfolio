@@ -39,8 +39,8 @@ const Tags = ({ tags }) => (
       return (
         <div className='flex flex-col items-center gap-1 mx-2 p-1 '>
          
-          <IconComponent className="w-4 h-4 mr-1 text-white" /> 
-          <span className='text-white text-xs'> {tagInfo.name}</span>
+          <IconComponent className="w-4 h-4 mr-1" /> 
+          <span className='text-gray text-xs'> {tagInfo.name}</span>
          
        </div>
       );

@@ -1,37 +1,17 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { Database, Cloud, Server, Brain, Code, Globe } from 'lucide-react'
+import { Database, Cloud, Server, Brain, Code, Globe, Network, EthernetPort, Bot, Wrench, Workflow, LayoutPanelTop} from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import 'devicon/devicon.min.css' // 
 import skills from '../contents/skills.json';
 
-const getIcon = (iconName) => {
-  switch (iconName) {
-    case 'Server':
-      return <Server className="w-6 h-6 "/>
-    ;
-    case 'Database':
-      return <Database className="w-6 h-6 " />
-      ;
-    case 'Cloud':
-      return <Cloud className="w-6 h-6 text-white" />
-    case 'Brain':
-      return <Brain className="w-6 h-6" />;
-    case 'Code':
-      return <Code className="w-6 h-6 " />
-    case 'Globe':
-      return <Globe className="w-6 h-6" />
-    default:
-      return null;
-  }
-};
+
 export default function SkillTree() {
   
   const [activeSkill, setActiveSkill] = useState(null);
   const modalRef = useRef(null);
 
-  
 
   const handleSkillClick = (index) => {
     setActiveSkill(activeSkill === index ? null : index);
@@ -76,6 +56,45 @@ export default function SkillTree() {
     };
   }, [activeSkill]);
 
+
+  const IconHandler = ({ iconClass, component }) => {
+    // Mapeo de nombres de componentes a componentes de Lucide
+    const getLucideComponent = (componentName) => {
+      const components = {
+        Network: Network,
+        EthernetPort: EthernetPort,
+        Cloud: Cloud,
+        Server: Server,
+        Globe: Globe,
+        Code: Code,
+        Brain: Brain,
+        Database: Database,
+        Bot: Bot,
+        Wrench: Wrench,
+        Workflow: Workflow,
+        LayoutPanelTop: LayoutPanelTop
+      };
+      
+      return components[componentName];
+    };
+  
+    // Si hay un componente especificado, renderizar el componente de Lucide
+    if (component) {
+      const LucideComponent = getLucideComponent(component);
+      if (LucideComponent) {
+        return <LucideComponent className="text-2xl text-white" />;
+      }
+    }
+  
+    // Si hay una clase de icono, renderizar el icono de devicon
+    if (iconClass) {
+      return <i className={`${iconClass} text-2xl text-white mr-2`} />;
+    }
+  
+    // Fallback en caso de que no haya ni componente ni clase de icono
+    return null;
+  };
+
   return (
     <section className="py-10">
       <div id="skills" className="container mx-auto px-6">
@@ -93,7 +112,8 @@ export default function SkillTree() {
               onClick={() => handleSkillClick(index)}
             >
               <motion.div className={`w-16 h-16 rounded-full border-2 border-gray-700 flex items-center justify-center cursor-pointer hover:border-yellow-400 border border-2 ${skill.color}`}>
-                {getIcon(skill.icon)}
+                {console.log(skill.icon)}
+                <IconHandler iconClass={skill.icon} component={skill.iconComponent}  />
               </motion.div>
               <h3 
                onClick={() => handleSkillClick(index)}
@@ -116,8 +136,9 @@ export default function SkillTree() {
                
                 <div id="techdetailed">
                   <div className="flex">
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${skills[activeSkill].color} mr-4 border-2 border-yellow-500`}>
-                      {getIcon(skills[activeSkill].icon)}
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${skills[activeSkill].color} mr-4 border-2 border-yellow-500 p-2`}>
+                      <IconHandler component={skills[activeSkill].iconComponent}></IconHandler>
+                      
                     </div>
                     <button
                       onClick={handleClose}
@@ -127,7 +148,7 @@ export default function SkillTree() {
                     </button>
                   </div>
                   <h3 className="text-2xl pt-3 font-bold text-transparent mb-2 bg-clip-text bg-gradient-to-r from-yellow-400">{skills[activeSkill].title}</h3>
-                  <p className="text-md text-gray-300 prose-md">{skills[activeSkill].description}</p>
+                  <p className="text-md text-gray-300 p-2">{skills[activeSkill].description}</p>
                 </div>
               </div>
               <div className="mt-6">
@@ -137,8 +158,9 @@ export default function SkillTree() {
                     <div key={index} className="bg-gray-700/30  rounded-lg p-3 prose">
                       <div className="flex">
                         <div className="flex items-center">
-                          {tech.component ? <tech.component className="text-2xl text-red mr-2 " /> : <i className={`${tech.iconClass} text-2xl text-white mr-2`} />}
-                          <span className="text-lg text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-white ">{tech.name}</span>
+                        <IconHandler iconClass={tech.iconClass} component={tech.component} />
+
+                          <span className="text-lg text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-white mx-2 ">{tech.name}</span>
                         </div>
                       </div>
                       <p className="pl-2 text-gray-300 text-sm hover:text-yellow-400">{tech.description}</p>

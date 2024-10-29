@@ -1,9 +1,9 @@
 [
     {
-      "icon": "Server",
+      "iconComponent": "Server",
       "color": "bg-purple-700",
       "title": "Telco & Operating Systems",
-      "description": "Especialista en la administración de sistemas operativos y redes en el sector de telecomunicaciones, con un fuerte enfoque en la mejora de la eficiencia y el rendimiento.",
+      "description": "Especialista en la ingeniería de plataformas y sistemas del sector Telco, con un fuerte enfoque en la mejora de la eficiencia y el rendimiento de areas Operativas ",
       "technologies": [
         {
           "name": "Expertise en Soluciones de Telecomunicaciones",
@@ -29,7 +29,7 @@
       
     },
     {
-      "icon": "Database",
+      "iconComponent": "Database",
       "color": "bg-orange-500",
       "title": "Database, Streaming & Cache",
       "description": "Especializado en sistemas de datos de alto rendimiento y escalables.",
@@ -75,8 +75,8 @@
       
     },
     {
-      "icon": "Cloud",
-      "color": "bg-blue-400",
+      "iconComponent": "Cloud",
+      "color": "bg-cyan-500",
       "title": "Cloud & Microservices",
       "description": "Arquitecto de soluciones certificado en AWS , cloud nativas y microservicios.",
       "technologies": [
@@ -120,10 +120,10 @@
       
     },
     {
-      "icon": "Brain",
+      "iconComponent": "Brain",
       "color": "bg-black",
       "title": "Machine Learning & AI",
-      "description": "Te ayudamos a integrar IA en tu empresa usando herramientas como: OpenAI, Bedrock y SageMaker. Implementamos modelos y bots a medida para optimizar procesos y hacer que todo funcione de manera más eficiente.",
+      "description": "Te ayudo a integrar IA en tu empresa utilizando herramientas cloud como OpenAI, Bedrock y SageMaker. Adaptamos nuestros modelos y bots a tus necesidades para optimizar procesos y mejorar la eficiencia. Además, si tu prioridad es la privacidad o tienes acuerdos de confidencialidad (NDAs), también podemos implementar las soluciones en tus sistemas locales, garantizando así la seguridad de tu información.",
       "technologies": [
         {
           "name": "Modelos de Lenguaje",
@@ -133,6 +133,14 @@
           "component": "Bot"
         },
         {
+          "name": "Automatización e IA Low-Code",
+          "level": "Intermedio",
+          "description": "Diseña flujos de trabajo automatizados e inteligentes con n8n, integrando APIs y servicios de IA para potenciar procesos sin necesidad de programación compleja.",
+          "iconClass": "devicon-n8n-plain",
+          "component": "Workflow"
+        },
+        
+        {
           "name": "Optimización de Modelos",
           "level": "Avanzado",
           "description": "Desarrollo y ajuste de Transformers, TensorFlow y PyTorch para IA generativa y recuperación avanzada (RAG).",
@@ -140,10 +148,11 @@
           "component": "Wrench"
         },
         {
-          "name": "Prototipos y Aplicaciones Interactivas",
+          "name": "Prototipos ágil y Aplicaciones Interactivas",
           "level": "Intermedio",
           "description": "Creación de aplicaciones de IA generativa con Streamlit y Gradio, y visualización en Jupyter Notebooks.",
-          "iconClass": "devicon-streamlit-plain"
+          "iconClass": "devicon-streamlit-plain",
+          "component": "LayoutPanelTop"
         },
         {
           "name": "Integración de Modelos (LangChain)",
@@ -156,8 +165,8 @@
       
     },
     {
-      "icon": "Code",
-      "color": "bg-green-500",
+      "iconComponent": "Code",
+      "color": "bg-green-600",
       "title": "Development",
      
       "description": "Desarrollo de aplicaciones, web & mobile, landings y servicios backend.",
@@ -208,8 +217,8 @@
    
     },
     {
-      "icon": "Globe",
-      "color": "bg-red-600",
+      "iconComponent": "Globe",
+      "color": "bg-blue-700",
       "title": "Automation & DevOps",
       
       "description": "Implementación de prácticas de DevOps y CI/CD.",
@@ -219,6 +228,12 @@
           "level": "Avanzado",
           "description": "Automatización de flujos de trabajo de integración continua en CircleCI, Github Actions, GitLab, y AWS Codepipeline",
           "iconClass": "devicon-jenkins-plain"
+        },
+        {
+          "name": "Low code",
+          "level": "Intermedio",
+          "description": "Workflow automation con Botpress, n8n, IBM RNA",
+          "iconClass": "devicon-terraform-plain"
         },
         {
           "name": "Terraform",

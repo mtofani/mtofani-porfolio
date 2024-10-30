@@ -1,6 +1,6 @@
 [
   {
-    "title": "Reemplazo OSS Observabilidad - Telco",
+    "title": "Reemplazo Observabilidad - OSS- Telco",
     "project_tags": ["Diseño/Arquitectura","Project Management"],
     "subtitle": "🏆 Caso de Éxito: IPLAN NSS - PandoraFMS - Diseño de Solución, Personalización e Integraciones",
     "hide": false,
@@ -20,15 +20,15 @@
       }
     ],
     "tags": [
-      "Networking","API","PYTHON","JS"
+      "SNMP","API","PYTHON","JS"
     ]
   },
   {
-    "title": "RAG Chat con tus documentos",
-    "subtitle": "🤖 RAG Chat - LLM OpenSource",
+    "title": "RAG-Chat con tus documentos",
+    "subtitle": "🤖 Consulta tus documentos de forma segura y en lenguaje natural",
     "project_tags": ["IA", "LLM"],
     "hide": false,
-    "description": "RAG Chat es un prototipo funcional que garantiza la privacidad, utilizando un modelo LLM open source en Local. Permite búsquedas vectoriales rápidas con FAISS, subida de archivos y ajuste de parámetros, funcionando eficientemente en CPU. Desarrollado con Streamlit y Python para un control total de los datos",
+    "description": "RAG-Chat es un prototipo funcional que garantiza la privacidad, utilizando un modelo LLM open source en Local. Permite búsquedas vectoriales rápidas con FAISS, contexto y memoria, subida de archivos y ajuste de parámetros, funcionando eficientemente sin la necesidad de GPU. Desarrollado con Streamlit y Python para un control total de los datos",
     "keyPoints": [
       "Opensource",
       "Sin costo de suscripción/uso",
@@ -43,16 +43,17 @@
     ],
     "tags": [
       "PYTHON",
-      "HUGGINGFACE"
+      "HUGGINGFACE",
+      "LANGCHAIN"
     ]
   }  
   ,
   {
-    "title": "IA - BOT STT (Speech2Text) ",
-    "subtitle": "🦜 Agente WhatsApp, Asistente de notas, Q&A",
+    "title": "WhatApp Asistente por Voz - STT (Speech2Text) ",
+    "subtitle": "🦜 Tu asistente personal en WhatsApp",
     "project_tags": ["IA", "LLM"],
     "hide": false,
-"description": "Creé un bot de WhatsApp que utiliza modelos de lenguaje (LLMs) para procesar mensajes de audio, transformándolos en texto y adaptándolos según las necesidades del usuario, como generar listas de compras o realizar resúmenes. El sistema aprovecha la inteligencia artificial para ofrecer interacciones naturales y respuestas personalizadas.",
+"description": "Creé un bot de WhatsApp que procesa audio + RestAPIs que utilizan modelos de lenguaje (LLMs) transforman y adaptan texto según las necesidades del usuario, por ej: generar listas de compras o realizar resúmenes. El sistema aprovecha la inteligencia artificial y los prompts para ofrecer interacciones naturales y respuestas personalizadas.",
     "keyPoints": [
       "Transcripción y comando por voz",
       "Opensource",

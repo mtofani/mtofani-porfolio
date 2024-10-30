@@ -28,12 +28,12 @@ export default function EnhancedMinimalistMentoringDonation() {
 
             <Card className='bg-purple-600/10 p-2 mt-5'>
             <CardHeader >
-              <CardTitle className='text-2xl'>Asesoramiento Personalizado</CardTitle>
-              <CardDescription>Agenda tu sesión en Calendly y resolvamos tus dudas o las de tu equipo.</CardDescription>
+              <CardTitle className='text-2xl text-slate-200 '>Asesoramiento Personalizado</CardTitle>
+              <CardDescription className="text-slate-300">Agenda tu sesión en Calendly y resolvamos tus dudas o las de tu equipo.</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex items-center space-x-2">
-                <Calendar className="text-primary" />
+            <CardContent className="space-y-4 text-slate-200">
+              <div className="flex  items-center space-x-2">
+                <Calendar className="" />
                 <span>Sesiones flexibles de 30 o 60 minutos</span>
               </div>  
               <div className="flex items-center space-x-2">

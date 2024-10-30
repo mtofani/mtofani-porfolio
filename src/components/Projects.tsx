@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/dialog"
 import PROJECTS from '../contents/projects.json'
 import Tags from "./Tags"
+import KeyPoints from "./Keypoints";
 
 const iconMap = {
   "Multitenancy observability": <Server className="h-5 w-5" />,
@@ -29,9 +30,9 @@ const iconMap = {
   "costo": <CircleDollarSign className="h-5 w-5 text-green-500" />,
   "Datos seguros": <BookHeart className="h-5 w-5 text-yellow-500" />,  
   "seg": <Timer className="h-5 w-5" />,
-  "Eventos" : <Zap className="h-5 w-5 text-yellow-700" />,
-  "Cluster" : <Boxes className="h-5 w-5 text-yellow-500" />,
-  "Voz" : <AudioLines className="h-5 w-5 text-yellow-500" />,
+  "Eventos": <Zap className="h-5 w-5 text-yellow-700" />,
+  "Cluster": <Boxes className="h-5 w-5 text-yellow-500" />,
+  "Voz": <AudioLines className="h-5 w-5 text-yellow-500" />,
 }
 
 const getIconForKeyPoint = (keyPoint: string) => {
@@ -75,118 +76,147 @@ export default function Portfolio() {
   }
 
   return (
-    <div className="space-y-5 container mx-auto">
-      <h3 className="text-4xl font-extrabold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-500">
-        Proyectos
-      </h3>
-      <div className="grid gap-4 md:grid-cols-2">
-        {PROJECTS.slice(0, visibleProjects).map((project: Project, index: number) => (
-          <Card key={index} className="flex flex-col justify-around overflow-hidden bg-purple-900/10 p-1 border border-purple-700/40 transition-colors duration-2000 hover:border-purple-700">
-            <CardHeader className="mb-1">
-              <CardTitle className="text-2xl">{project.title}</CardTitle>
-              <div id="project-tags" className="flex flex-row border p-1 justify-start gap-2 ">
-              {project.project_tags?.map((ptag, index) => (
-                
-                  <span className="p-2 border border-purple-700 rounded-lg text-[10px] bg-slate-700 hover:scale-105">{ptag}</span>
-               
+    <section className="py-16 px-4 bg-gradient-to-b from-purple-950/20 to-transparent">
+      <div className="max-w-7xl mx-auto space-y-10">
+        <h2 className="text-4xl font-extrabold text-center relative">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-purple-500">
+            Proyectos
+          </span>
+          <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-purple-300 to-purple-500 rounded-full" />
+        </h2>
+        
+        <div className="grid lg:grid-cols-2 gap-10">
+          {PROJECTS.slice(0, visibleProjects).map((project: Project, index: number) => (
+            <Card key={index} className="group relative flex flex-col bg-purple-950/30 border border-purple-700/30 rounded-xl overflow-hidden transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_15px_rgba(168,85,247,0.15)]">
+              <CardHeader className="space-y-4">
+                <CardTitle className="text-2xl font-bold bg-gradient-to-r from-white to-purple-100 bg-clip-text text-transparent">
+                  {project.title}
+                </CardTitle>
+                {project.project_tags && (
+                  <div className="flex flex-wrap gap-2">
+                    {project.project_tags.map((tag, idx) => (
+                      <span key={idx} className="px-3 py-1 text-xs font-medium rounded-full bg-purple-500/20 text-purple-200 border border-purple-500/30">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </CardHeader>
 
-              ))}
-               </div>
-            </CardHeader>
-            <CardContent className="flex flex-grow items-start px-2">
-             
-              <div className="space-y-5 w-full ">
-              
+              <CardContent className="flex-grow space-y-4">
                 <Carousel className="w-full">
                   <CarouselContent>
                     {project.media.map((item, mediaIndex) => (
                       <CarouselItem key={mediaIndex}>
-                        {item.type === "image" ? (
-                          <Dialog>
-                            <DialogTrigger asChild>
-                              <img
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            {item.type === "image" ? (
+                              <div className="relative aspect-video  cursor-zoom-in rounded-lg overflow-hidden">
+                                <img
+                                  src={item.src}
+                                  alt={`${project.title} - Image ${mediaIndex + 1}`}
+                                  className="w-full h-full object-cover  transition-transform duration-500 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                              </div>
+                            ) : (
+                              <video
                                 src={item.src}
-                              
-                                alt={`${project.title} - Image ${mediaIndex + 1}`}
-                                className="w-full h-full object-cover aspect-video rounded-lg cursor-zoom-in transition-transform duration-300 hover:scale-105"
+                                controls
+                                className="w-full aspect-video rounded-lg"
                               />
-                            </DialogTrigger>
-                            <DialogContent className="top-1/2 overflow-y-scroll max-w-[90vw] max-h-[90vh] p-0">
-                              
+                            )}
+                          </DialogTrigger>
+                          <DialogContent className="max-w-4xl">
+                            {item.type === "image" ? (
                               <img
                                 src={item.src}
-                                alt={`${project.title} - Image ${mediaIndex + 1} (Zoomed)`}
+                                alt={`${project.title} - Image ${mediaIndex + 1}`}
                                 className="w-full h-full object-contain rounded-lg"
                               />
-                            </DialogContent>
-                          </Dialog>
-                        ) : (
-                          <video
-                            src={item.src}
-                            controls
-                            className="w-full h-full object-cover aspect-video rounded-lg"
-                          >
-                            Your browser does not support the video tag.
-                          </video>
-                        )}
+                            ) : (
+                              <video
+                              src={item.src}
+                              controls
+                              className="w-full aspect-video rounded-lg"
+                            />
+
+                            )}
+                          </DialogContent>
+                        </Dialog>
                       </CarouselItem>
                     ))}
                   </CarouselContent>
-                  { project.media.length > 1 && (
-                  <div>
-                  <CarouselPrevious  className="bg-purple-500 absolute left-0 top-1/2"/>
-                  <CarouselNext  className="bg-purple-500 absolute right-0 top-1/2" />
-                  </div>
-                  )
-                  }
+                  {project.media.length > 1 && (
+                    <>
+                      <CarouselPrevious className="left-2 bg-purple-500/80 hover:bg-purple-600 border-none" />
+                      <CarouselNext className="right-2 bg-purple-500/80 hover:bg-purple-600 border-none" />
+                    </>
+                  )}
                 </Carousel>
-              
-                <div className="px-1">
-                  <h3 className="text-semibold text-yellow-500">{project.subtitle}</h3>
-                  <p className="text-sm p-1 mt-2 mb-2">{project.description}</p>
-                  <Card id="keypoints" className="grid md:grid-cols-4 grid-cols-2  bg-purple-700/15 mt-5 ">
-                    {project.keyPoints?.map((keypoint, kIndex) => (
-                      <CardContent key={kIndex} className="flex flex-col p-2  flex-grow items-center justify-around text-center text-xs">
-                        {getIconForKeyPoint(keypoint)}
-                        <span className="p-1 tracking-wide"id="kpoint">{keypoint}</span>
-                      </CardContent>
-                    ))}
-                  </Card>
-                </div>
-                <div className="flex flex-col md:items-start items-center justify-around p-2">
-                  <div className="items-center p-2">
-                    Tecnologías utilizadas
-                    <Tags tags={project?.tags} />
+
+                {project.subtitle && (
+                  <h3 className="text-lg font-semibold text-yellow-400/90">{project.subtitle}</h3>
+                )}
+                
+                <p className="text-slate-300 leading-relaxed">{project.description}</p>
+
+                {project.keyPoints && (
+                  <div className="space-y-4">
+                    <h4 className="text-sm font-medium text-purple-200">Características principales</h4>
+                    <KeyPoints 
+                      points={project.keyPoints}
+                      getIcon={getIconForKeyPoint}
+                    />
                   </div>
-                </div>
-              </div>
-            </CardContent>
-            <CardFooter className="flex p-1 justify-center">
-              {project.github && (
-                <Button variant="outline" asChild>
-                  <a href={project.github} target="_blank" rel="noopener noreferrer">
-                    <Github className="w-4 h-4 mr-2" />
-                    Code
-                  </a>
-                </Button>
-              )}
-              {project.link && (
-                <Button className="flex p-2 text-white border border-purple-500 bg-dark-700 hover:scale-105 hover:bg-purple-700" asChild>
-                  <a href={project.link} target="_blank" rel="noopener noreferrer">
-                    <Link className="w-4 h-4 mr-2" />
-                    Ver más
-                  </a>
-                </Button>
-              )}
-            </CardFooter>
-          </Card>
-        ))}
+                )}
+
+                {project.tags && (
+                  <div className="space-y-2">
+                    <h4 className="text-sm font-medium text-purple-200">Tecnologías utilizadas</h4>
+                    <Tags tags={project.tags} />
+                  </div>
+                )}
+              </CardContent>
+
+              <CardFooter className="flex justify-center">
+                {project.github && (
+                  <Button
+                    variant="outline"
+                    className="bg-transparent border-purple-500 text-purple-200 hover:bg-purple-500/20"
+                    asChild
+                  >
+                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <Github className="w-4 h-4 mr-2" />
+                      Code
+                    </a>
+                  </Button>
+                )}
+                {project.link && (
+                  <Button
+                    className="bg-purple-500 text-white hover:bg-purple-600 transition-colors"
+                    asChild
+                  >
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      <Link className="w-4 h-4 mr-2" />
+                      Ver más
+                    </a>
+                  </Button>
+                )}
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+
+        <div className="flex justify-center pt-8">
+          <Button
+            onClick={toggleProjects}
+            className="px-6 py-2 bg-purple-500 text-white rounded-full hover:bg-purple-600 transition-colors"
+          >
+            {isExpanded ? 'Ver menos proyectos' : 'Ver más proyectos'}
+          </Button>
+        </div>
       </div>
-      <div className="flex justify-center">
-        <Button onClick={toggleProjects} className="bg-dark-700 border border-purple-500  text-white text-center hover:bg-white hover:text-black rounded-full">
-          {isExpanded ? 'Ver menos proyectos' : 'Ver más proyectos'}
-        </Button>
-      </div>
-    </div>
+    </section>
   )
 }

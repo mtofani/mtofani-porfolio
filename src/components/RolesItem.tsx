@@ -42,7 +42,7 @@ export default function RolesItem({ role }) {
       </div>
       <Card className="mb-10 p-2 border-0 bg-transparent text-gray-100 overflow-hidden">
         <CardContent id="card-content" className="p-2">
-          <p className="mb-4 prose-sm">{role.description}</p>
+          <p className="mb-4 prose-sm text-white">{role.description}</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>
@@ -54,7 +54,9 @@ export default function RolesItem({ role }) {
                 {role.keyPoints.map((point, i) => (
                   <li key={i} className="flex items-center gap-2 text-sm">
                     {iconMap[point] || <Code className="h-4 w-4" />}
+                    <span className="prose-sm text-white">
                     {point}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -68,11 +70,11 @@ export default function RolesItem({ role }) {
               <ul className="space-y-2">
                 {role.achievements.map((achievement, i) => (
                   <li key={i} className="text-sm">
-                    <span className="font-semibold flex items-center gap-1">
+                    <span className="prose-md text-semibold flex items-center gap-1">
                       <ChevronRight className="h-3 w-3 text-yellow-400" />
                       {achievement.title}
                     </span>
-                    <p className="text-xs text-gray-300 ml-4">{achievement.description}</p>
+                    <p className="prose-sm mt-1 text-gray-300 ml-4">{achievement.description}</p>
                   </li>
                 ))}
               </ul>

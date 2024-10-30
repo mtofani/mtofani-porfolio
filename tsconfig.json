@@ -2,6 +2,7 @@
     "compilerOptions": {
        "jsx": "react-jsx",
        "resolveJsonModule": true,
+       "lib": ["es2015", "dom"],
        "allowSyntheticDefaultImports": true,
        "baseUrl": ".",
       "paths": {

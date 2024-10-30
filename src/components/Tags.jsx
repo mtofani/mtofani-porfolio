@@ -1,11 +1,11 @@
 import React from 'react';
 import PROJECTS from '../contents/projects.json'
-import { Networking, HUGGINGFACE, JS, PYTHON } from './icons'; // Importa tus iconos
+import { Networking, HUGGINGFACE, JS, PYTHON, LANGCHAIN } from './icons'; // Importa tus iconos
 import {Braces} from "lucide-react";
 
 const tagComponents = {
-  "Networking": {
-    name: "Backbone/PON-GPON",
+  "SNMP": {
+    name: "SNMP",
     class: "bg-[#003159] text-white",
     icon: Networking
   },
@@ -24,6 +24,11 @@ const tagComponents = {
     name: "Javascript",
     class: "h-30 w-30",
     icon: JS// Ejemplo de un icono de texto
+  },
+  "LANGCHAIN": {
+    name: "Langchain",
+    class: "h-30 w-30",
+    icon: LANGCHAIN// Ejemplo de un icono de texto
   }
 };
 
@@ -39,8 +44,8 @@ const Tags = ({ tags }) => (
       return (
         <div className='flex flex-col items-center gap-1 mx-2 p-1 '>
          
-          <IconComponent className="w-4 h-4 mr-1" /> 
-          <span className='text-gray text-xs'> {tagInfo.name}</span>
+          <IconComponent className=" mr-1" /> 
+          <span className='text-gray'> {tagInfo.name}</span>
          
        </div>
       );

@@ -112,12 +112,11 @@ export default function SkillTree() {
               onClick={() => handleSkillClick(index)}
             >
               <motion.div className={`w-16 h-16 rounded-full border-2 border-gray-700 flex items-center justify-center cursor-pointer hover:border-yellow-400 border border-2 ${skill.color}`}>
-                {console.log(skill.icon)}
                 <IconHandler iconClass={skill.icon} component={skill.iconComponent}  />
               </motion.div>
               <h3 
                onClick={() => handleSkillClick(index)}
-               className="text-md font-semibold text-white mt-2 text-center">{skill.title}</h3>
+               className="text-xl font-semibold text-white mt-2 text-center">{skill.title}</h3>
             </motion.div>
           ))}
         </div>
@@ -148,7 +147,7 @@ export default function SkillTree() {
                     </button>
                   </div>
                   <h3 className="text-2xl pt-3 font-bold text-transparent mb-2 bg-clip-text bg-gradient-to-r from-yellow-400">{skills[activeSkill].title}</h3>
-                  <p className="text-md text-gray-300 p-2">{skills[activeSkill].description}</p>
+                  <p className="prose text-md text-gray-300 p-1">{skills[activeSkill].description}</p>
                 </div>
               </div>
               <div className="mt-6">
@@ -160,10 +159,10 @@ export default function SkillTree() {
                         <div className="flex items-center">
                         <IconHandler iconClass={tech.iconClass} component={tech.component} />
 
-                          <span className="text-lg text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-white mx-2 ">{tech.name}</span>
+                          <span className="text-lg text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-white mx-1.5 ">{tech.name}</span>
                         </div>
                       </div>
-                      <p className="pl-2 text-gray-300 text-sm hover:text-yellow-400">{tech.description}</p>
+                      <p className=" text-gray-300 text-sm hover:text-yellow-400">{tech.description}</p>
                     </div>
                   ))}
                 </div>

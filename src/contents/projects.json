@@ -16,7 +16,7 @@
     
       {
         "type": "image",
-        "src": "/PandoraFMS-Consola.jpg?height=450&width=800"
+        "src": "/media/PandoraFMS-Consola.jpg?height=450&width=800"
       }
     ],
     "tags": [
@@ -38,7 +38,7 @@
     "media": [
       {
         "type": "video",
-        "src": "/ragdemo.mp4"
+        "src": "/media/ragdemo.mp4"
       }    
     ],
     "tags": [
@@ -50,7 +50,7 @@
   ,
   {
     "title": "WhatApp Asistente por Voz - STT (Speech2Text) ",
-    "subtitle": "🦜 Tu asistente personal en WhatsApp",
+    "subtitle": "💬 Tu asistente personal en WhatsApp",
     "project_tags": ["IA", "LLM"],
     "hide": false,
 "description": "Creé un bot de WhatsApp que procesa audio + RestAPIs que utilizan modelos de lenguaje (LLMs) transforman y adaptan texto según las necesidades del usuario, por ej: generar listas de compras o realizar resúmenes. El sistema aprovecha la inteligencia artificial y los prompts para ofrecer interacciones naturales y respuestas personalizadas.",
@@ -64,11 +64,11 @@
      
       {
         "type": "image",
-        "src": "/chatejemplo.jpg"
+        "src": "/media/chatejemplo.jpg"
       }    ,
       {
         "type": "image",
-        "src": "/diseño.jpg"
+        "src": "/media/diseño.jpg"
       } 
     ],
     "tags": [

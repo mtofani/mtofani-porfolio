@@ -17,7 +17,7 @@ export default function EnhancedMinimalistMentoringDonation() {
         <div className="grid grid-cols-1 md:grid-cols-2 rounded-xl p-5 gap-5">
         <div className="flex items-start">
             <img 
-              src="test3.png" 
+              src="/media/test3.png" 
               alt="Mentoring" 
               className="top-0 left-0 scale-90 object-fit rounded-xl " 
             />

@@ -1,9 +1,9 @@
 "use client"
 
-import { useState } from "react"
+import { useState,useEffect,useRef } from "react"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Github, Link, Zap, Timer, CircleDollarSign, BookHeart, Code, Server, SearchCode, Boxes, AudioLines } from "lucide-react"
+import { Github, Link, Zap, Timer, ChevronDown, ChevronUp, HardHat, BotMessageSquare, CircleDollarSign, BookHeart, Code, Server, SearchCode, Boxes, AudioLines } from "lucide-react"
 import {
   Carousel,
   CarouselContent,
@@ -19,6 +19,7 @@ import {
 import PROJECTS from '../contents/projects.json'
 import Tags from "./Tags"
 import KeyPoints from "./Keypoints";
+import WorkingArea from "./WorkingArea";
 
 const iconMap = {
   "Multitenancy observability": <Server className="h-5 w-5" />,
@@ -65,6 +66,17 @@ type Project = {
 export default function Portfolio() {
   const [visibleProjects, setVisibleProjects] = useState(3)
   const [isExpanded, setIsExpanded] = useState(false)
+  const [isWorkingArea, setWorkingArea] = useState(true)
+  const buttonRef = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    if (!isExpanded && buttonRef.current) {
+      const yOffset = -100; // Ajusta este valor para controlar cuánto espacio dejar por encima del botón
+      const y = buttonRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({top: y, behavior: 'instant'});
+    }
+  }, [isExpanded])
+
 
   const toggleProjects = () => {
     if (isExpanded) {
@@ -76,16 +88,26 @@ export default function Portfolio() {
   }
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-b from-purple-950/20 to-transparent">
+    <section className="py-16">
       <div className="max-w-7xl mx-auto space-y-10">
         <h2 className="text-4xl font-extrabold text-center relative">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-purple-500">
             Proyectos
           </span>
+          
+          
           <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-purple-300 to-purple-500 rounded-full" />
         </h2>
-        
+        <div className="flex flex-col justify-center items-center transition-transform duration-500 hover:scale-105">
+
+          {
+             isWorkingArea && (
+            <WorkingArea title="Ponte el casco!" sub=" Estamos en construcción. 🚧"></WorkingArea>
+             )
+          }
+</div>
         <div className="grid lg:grid-cols-2 gap-10">
+
           {PROJECTS.slice(0, visibleProjects).map((project: Project, index: number) => (
             <Card key={index} className="group relative flex flex-col bg-purple-950/30 border border-purple-700/30 rounded-xl overflow-hidden transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_15px_rgba(168,85,247,0.15)]">
               <CardHeader className="space-y-4">
@@ -209,12 +231,24 @@ export default function Portfolio() {
         </div>
 
         <div className="flex justify-center pt-8">
-          <Button
-            onClick={toggleProjects}
-            className="px-6 py-2 bg-purple-500 text-white rounded-full hover:bg-purple-600 transition-colors"
-          >
-            {isExpanded ? 'Ver menos proyectos' : 'Ver más proyectos'}
-          </Button>
+        {PROJECTS.length > 2 && (
+        
+            <Button
+              variant="ghost"
+              className="text-purple-400 hover:bg-purple-900/20 flex w-min mt-2 rounded-lg items-center gap-2"
+              onClick={toggleProjects}
+            >
+              {isExpanded ? (
+                <>
+                  <span className='text-lg'>Ver menos  </span><ChevronUp className="h-4 w-4" />
+                </>
+              ) : (
+                <>
+                 <span ref={buttonRef} className='text-lg'>Ver más proyectos</span> <ChevronDown className="h-4 w-4" />
+                </>
+              )}
+            </Button>
+          )}
         </div>
       </div>
     </section>

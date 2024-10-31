@@ -15,23 +15,23 @@ const CertificationCard = ({ cert }) => {
   return (
     <motion.div
       layout
-      className="relative overflow-hidden rounded-lg cursor-pointer"
+      className="relative overflow-hidden w-auto rounded-lg cursor-pointer"
       whileHover="hover"
       initial="rest"
       animate="rest"
     >
       <motion.div 
-        className="relative w-full pb-[100%]"
+        className="relative w-full  pb-[100%]"
         variants={{
-          rest: { scale: 0.75 },
-          hover: { scale: 0.85 }
+          rest: { scale: 0.85 },
+          hover: { scale: 0.90 }
         }}
         transition={{ duration: 0.3 }}
       >
         <img 
           src={cert.logo} 
           alt={cert.name} 
-          className="absolute top-0 left-0 w-full h-full object-contain"
+          className="absolute top-0 left-0   object-contain"
         />
         <motion.div
           className="absolute right-10 -bottom-5 flex items-end w-2/3 justify-center bg-gradient-to-t from-black/50 to-transparent rounded-full z-10"

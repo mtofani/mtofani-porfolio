@@ -1,9 +1,9 @@
 "use client"
 
-import { useState,useEffect,useRef } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Github, Link, Zap, Timer, ChevronDown, ChevronUp, HardHat, BotMessageSquare, CircleDollarSign, BookHeart, Code, Server, SearchCode, Boxes, AudioLines } from "lucide-react"
+import { Github,Code, CircleDollarSign,BookHeart,CircleEllipsis, Link, Zap, Timer, ChevronDown, ChevronUp, Server, SearchCode, Boxes, AudioLines } from "lucide-react"
 import {
   Carousel,
   CarouselContent,
@@ -45,46 +45,25 @@ const getIconForKeyPoint = (keyPoint: string) => {
   return null;
 };
 
-type MediaItem = {
-  type: string,
-  src: string
-}
-
-type Project = {
-  title: string
-  description: string
-  hide: boolean
-  subtitle?: string
-  project_tags?: string[],
-  keyPoints?: string[]
-  link?: string
-  github?: string
-  media: MediaItem[]
-  tags?: string[]
-}
-
 export default function Portfolio() {
-  const [visibleProjects, setVisibleProjects] = useState(3)
+  const [visibleProjects, setVisibleProjects] = useState(2)
   const [isExpanded, setIsExpanded] = useState(false)
   const [isWorkingArea, setWorkingArea] = useState(true)
-  const buttonRef = useRef<HTMLButtonElement>(null)
+  const buttonRefP = useRef<HTMLButtonElement>(null)
+  const [hasInteracted, setHasInteracted] = useState(false)
 
   useEffect(() => {
-    if (!isExpanded && buttonRef.current) {
-      const yOffset = -100; // Ajusta este valor para controlar cuánto espacio dejar por encima del botón
-      const y = buttonRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({top: y, behavior: 'instant'});
+    if (hasInteracted) {      
+      const yOffset = -1000; // Ajusta este valor para controlar cuánto espacio dejar por encima del botón
+      const y = buttonRefP.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({top: y, behavior: 'auto'});
     }
   }, [isExpanded])
 
-
   const toggleProjects = () => {
-    if (isExpanded) {
-      setVisibleProjects(2)
-    } else {
-      setVisibleProjects(PROJECTS.length)
-    }
+    setHasInteracted(true)
     setIsExpanded(!isExpanded)
+    setVisibleProjects(isExpanded ? 2 : PROJECTS.length)
   }
 
   return (
@@ -94,21 +73,15 @@ export default function Portfolio() {
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-purple-500">
             Proyectos
           </span>
-          
-          
           <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-purple-300 to-purple-500 rounded-full" />
         </h2>
         <div className="flex flex-col justify-center items-center transition-transform duration-500 hover:scale-105">
-
-          {
-             isWorkingArea && (
+          {isWorkingArea && (
             <WorkingArea title="Ponte el casco!" sub=" Estamos en construcción. 🚧"></WorkingArea>
-             )
-          }
-</div>
+          )}
+        </div>
         <div className="grid lg:grid-cols-2 gap-10">
-
-          {PROJECTS.slice(0, visibleProjects).map((project: Project, index: number) => (
+          {PROJECTS.slice(0, visibleProjects).map((project, index) => (
             <Card key={index} className="group relative flex flex-col bg-purple-950/30 border border-purple-700/30 rounded-xl overflow-hidden transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_15px_rgba(168,85,247,0.15)]">
               <CardHeader className="space-y-4">
                 <CardTitle className="text-2xl font-bold bg-gradient-to-r from-white to-purple-100 bg-clip-text text-transparent">
@@ -133,11 +106,11 @@ export default function Portfolio() {
                         <Dialog>
                           <DialogTrigger asChild>
                             {item.type === "image" ? (
-                              <div className="relative aspect-video  cursor-zoom-in rounded-lg overflow-hidden">
+                              <div className="relative aspect-video cursor-zoom-in rounded-lg overflow-hidden">
                                 <img
                                   src={item.src}
                                   alt={`${project.title} - Image ${mediaIndex + 1}`}
-                                  className="w-full h-full object-cover  transition-transform duration-500 group-hover:scale-105"
+                                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                               </div>
@@ -158,11 +131,10 @@ export default function Portfolio() {
                               />
                             ) : (
                               <video
-                              src={item.src}
-                              controls
-                              className="w-full aspect-video rounded-lg"
-                            />
-
+                                src={item.src}
+                                controls
+                                className="w-full aspect-video rounded-lg"
+                              />
                             )}
                           </DialogContent>
                         </Dialog>
@@ -181,17 +153,27 @@ export default function Portfolio() {
                   <h3 className="text-lg font-semibold text-yellow-400/90">{project.subtitle}</h3>
                 )}
                 
-                <p className="text-slate-300 leading-relaxed">{project.description}</p>
-
-                {project.keyPoints && (
-                  <div className="space-y-4">
-                    <h4 className="text-sm font-medium text-purple-200">Características principales</h4>
-                    <KeyPoints 
-                      points={project.keyPoints}
-                      getIcon={getIconForKeyPoint}
-                    />
-                  </div>
-                )}
+                <p className="text-slate-300 leading-relaxed">
+                  {project.description.slice(0, 200)}...
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button variant="link" className="text-yellow-400 text-md hover:underline ml-2 p-2">
+                        Ver más<CircleEllipsis className="h-4 w-4 ml-2" />
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="bg-slate-900 max-w-4xl h-auto py-10">
+                    <h3 className="prose-xl text-yellow-500 ">{project.subtitle}</h3>
+                      <p className="prose-lg">{project.description}</p>
+                      
+                    </DialogContent>
+                  </Dialog>
+                  {project.keyPoints && (
+                        <KeyPoints 
+                          points={project.keyPoints}
+                          getIcon={getIconForKeyPoint}
+                        />
+                      )}
+                </p>
 
                 {project.tags && (
                   <div className="space-y-2">
@@ -201,7 +183,7 @@ export default function Portfolio() {
                 )}
               </CardContent>
 
-              <CardFooter className="flex justify-center">
+              <CardFooter className="flex justify-center h-10">
                 {project.github && (
                   <Button
                     variant="outline"
@@ -216,12 +198,12 @@ export default function Portfolio() {
                 )}
                 {project.link && (
                   <Button
-                    className="bg-purple-500 text-white hover:bg-purple-600 transition-colors"
+                    className="bg-purple-900 text-white text-md hover:bg-purple-600 transition-colors"
                     asChild
                   >
                     <a href={project.link} target="_blank" rel="noopener noreferrer">
                       <Link className="w-4 h-4 mr-2" />
-                      Ver más
+                      Link
                     </a>
                   </Button>
                 )}
@@ -231,20 +213,20 @@ export default function Portfolio() {
         </div>
 
         <div className="flex justify-center pt-8">
-        {PROJECTS.length > 2 && (
-        
+          {PROJECTS.length > 2 && (
             <Button
               variant="ghost"
-              className="text-purple-400 hover:bg-purple-900/20 flex w-min mt-2 rounded-lg items-center gap-2"
+              className="text-purple-400 hover:bg-purple-900/20 flex w-min  rounded-lg items-center gap-2"
               onClick={toggleProjects}
+              ref={buttonRefP}
             >
               {isExpanded ? (
                 <>
-                  <span className='text-lg'>Ver menos  </span><ChevronUp className="h-4 w-4" />
+                  <span className='text-lg'>Ver menos</span><ChevronUp className="h-4 w-4" />
                 </>
               ) : (
                 <>
-                 <span ref={buttonRef} className='text-lg'>Ver más proyectos</span> <ChevronDown className="h-4 w-4" />
+                  <span className='text-lg'>Ver más proyectos</span><ChevronDown className="h-4 w-4" />
                 </>
               )}
             </Button>

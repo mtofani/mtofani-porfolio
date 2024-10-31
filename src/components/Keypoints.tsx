@@ -15,12 +15,15 @@ export default function KeyPoints({ points, getIcon }: KeyPointsProps) {
       <Card
             
             className={cn(
-              "grid md:grid-cols-4 gap-2",
+              "grid md:grid-cols-4",
               "group relative min-w-[200px]",
-              "bg-purple-950/40",
+              "bg-purple-950/70",
               "transition-all duration-300",
               "hover:bg-purple-900/30 hover:border-purple-500/40",
-              "hover:shadow-[0_0_15px_rgba(168,85,247,0.1)]"
+              "hover:shadow-[0_0_15px_rgba(168,85,247,0.1)]",
+              "mt-8",
+              "items-start"
+            
             )}
           >
         {points.map((point, index) => (
@@ -29,7 +32,7 @@ export default function KeyPoints({ points, getIcon }: KeyPointsProps) {
         
                 {getIcon(point)}
               
-              <span className="text-xs mt-1">
+              <span className="md:text-sm text-md mt-1">
                 {point}
               </span>
             <div 

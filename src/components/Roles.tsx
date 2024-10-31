@@ -9,10 +9,13 @@ import roles from '../contents/roles.json'
 export default function Component() {
   const [visibleRoles, setVisibleRoles] = useState(3)
   const [isExpanded, setIsExpanded] = useState(false)
+  const [hasInteracted, setHasInteracted] = useState(false)
+
   const containerRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
 
   const toggleRoles = () => {
+    setHasInteracted(true)
     if (isExpanded) {
       setVisibleRoles(3)
       setIsExpanded(false)
@@ -23,10 +26,10 @@ export default function Component() {
   }
 
   useEffect(() => {
-    if (!isExpanded && buttonRef.current) {
-      const yOffset = -100; // Ajusta este valor para controlar cuánto espacio dejar por encima del botón
+    if (hasInteracted) {      
+      const yOffset = -200; // Ajusta este valor para controlar cuánto espacio dejar por encima del botón
       const y = buttonRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({top: y, behavior: 'instant'});
+      window.scrollTo({top: y, behavior: 'smooth'});
     }
   }, [isExpanded])
 

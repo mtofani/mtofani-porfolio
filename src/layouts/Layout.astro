@@ -3,6 +3,7 @@ import "@fontsource-variable/onest"
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
 import { ViewTransitions } from "astro:transitions"
+import ScrollReset from '../components/ScrollReset';
 
 interface Props {
   title: string
@@ -13,20 +14,23 @@ interface Props {
 <!doctype html>
 <html lang="es">
   <head>
-   
+    
     
     <meta charset="UTF-8" />
     <meta name="description" content={Astro.props.description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
     <title>{Astro.props.title}</title>
   
     <ViewTransitions />
   </head>
 
   <body class="bg-gray-50 dark:bg-gray-950">
+    
     <div
       class=""
     >

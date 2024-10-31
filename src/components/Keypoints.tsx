@@ -15,8 +15,7 @@ export default function KeyPoints({ points, getIcon }: KeyPointsProps) {
       <Card
             
             className={cn(
-              "grid md:grid-cols-4",
-              "group relative min-w-[200px]",
+              "grid md:grid-cols-2",
               "bg-purple-950/70",
               "transition-all duration-300",
               "hover:bg-purple-900/30 hover:border-purple-500/40",

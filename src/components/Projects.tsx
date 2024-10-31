@@ -36,6 +36,8 @@ const iconMap = {
   "Voz": <AudioLines className="h-5 w-5 text-yellow-500" />,
 }
 
+
+
 const getIconForKeyPoint = (keyPoint: string) => {
   for (const keyword in iconMap) {
     if (keyPoint.toLowerCase().includes(keyword.toLowerCase())) {
@@ -46,11 +48,14 @@ const getIconForKeyPoint = (keyPoint: string) => {
 };
 
 export default function Portfolio() {
-  const [visibleProjects, setVisibleProjects] = useState(2)
+  const CANT_PROJECTS = 2
+  const [visibleProjects, setVisibleProjects] = useState(CANT_PROJECTS)
   const [isExpanded, setIsExpanded] = useState(false)
   const [isWorkingArea, setWorkingArea] = useState(true)
   const buttonRefP = useRef<HTMLButtonElement>(null)
   const [hasInteracted, setHasInteracted] = useState(false)
+  const [selectedTag, setSelectedTag] = useState("Todos"); // Estado para el tag seleccionado
+  const [filteredProjects, setFilteredProjects] = useState(PROJECTS); // Proyectos filtrados
 
   useEffect(() => {
     if (hasInteracted) {      
@@ -63,8 +68,20 @@ export default function Portfolio() {
   const toggleProjects = () => {
     setHasInteracted(true)
     setIsExpanded(!isExpanded)
-    setVisibleProjects(isExpanded ? 2 : PROJECTS.length)
+    setVisibleProjects(isExpanded ? CANT_PROJECTS : PROJECTS.length)
   }
+
+  const handleTagClick = (tag) => {
+    setSelectedTag(tag);
+    // Filtrar proyectos según el tag seleccionado
+    if (tag === "Todos") {
+      setFilteredProjects(PROJECTS);
+    } else {
+      setFilteredProjects(PROJECTS.filter(project => project.project_tags.includes(tag)));
+    }
+    setVisibleProjects(CANT_PROJECTS); // Resetea el número visible de proyectos
+    setIsExpanded(false); // Cierra la vista expandida
+  };
 
   return (
     <section className="py-16">
@@ -80,22 +97,35 @@ export default function Portfolio() {
             <WorkingArea title="Ponte el casco!" sub=" Estamos en construcción. 🚧"></WorkingArea>
           )}
         </div>
-        <div className="grid lg:grid-cols-2 gap-10">
-          {PROJECTS.slice(0, visibleProjects).map((project, index) => (
+             {/* Mostrar tag seleccionado */}
+             <div className="text-center text-md p-0 m-0 ">
+          Filtrando por: <span className="font-bold text-purple-500">{selectedTag}</span>
+        </div>
+        
+        {/* Muestra los tags */}
+        <div className="flex justify-center space-x-4 mb-3">
+          <Button  className="text-white transition-transform duration-500 hover:scale-125 hover:text-purple-500 hover:bg-slate-900 bg-slate-900 " onClick={() => handleTagClick("Todos")}>Todos</Button>
+          {Array.from(new Set(PROJECTS.flatMap(project => project.project_tags))).map((tag, index) => (
+            <Button className="text-white transition-transform duration-500 hover:scale-125 hover:text-purple-500 hover:bg-slate-900 bg-slate-900" key={index} onClick={() => handleTagClick(tag)}>{tag}</Button>
+          ))}
+        </div>
+        <div className="grid lg:grid-cols-2 gap-5">
+          {filteredProjects.slice(0, visibleProjects).map((project, index) => (
             <Card key={index} className="group relative flex flex-col bg-purple-950/30 border border-purple-700/30 rounded-xl overflow-hidden transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_15px_rgba(168,85,247,0.15)]">
               <CardHeader className="space-y-4">
-                <CardTitle className="text-2xl font-bold bg-gradient-to-r from-white to-purple-100 bg-clip-text text-transparent">
-                  {project.title}
-                </CardTitle>
-                {project.project_tags && (
+              {project.project_tags && (
                   <div className="flex flex-wrap gap-2">
                     {project.project_tags.map((tag, idx) => (
-                      <span key={idx} className="px-3 py-1 text-xs font-medium rounded-full bg-purple-500/20 text-purple-200 border border-purple-500/30">
+                      <span key={idx} className="px-3 py-1 text-xs font-medium rounded-full bg-purple-500/20 hover:bg-slate-900 text-purple-200 border border-purple-500/30">
                         {tag}
                       </span>
                     ))}
                   </div>
                 )}
+                <CardTitle className="text-2xl font-bold bg-gradient-to-r from-white to-purple-100 bg-clip-text text-transparent">
+                  {project.title}
+                </CardTitle>
+               
               </CardHeader>
 
               <CardContent className="flex-grow space-y-4">
@@ -213,7 +243,7 @@ export default function Portfolio() {
         </div>
 
         <div className="flex justify-center pt-8">
-          {PROJECTS.length > 2 && (
+          {PROJECTS.length > CANT_PROJECTS && (
             <Button
               variant="ghost"
               className="text-purple-400 hover:bg-purple-900/20 flex w-min  rounded-lg items-center gap-2"

@@ -77,5 +77,37 @@
       "WHISPER",
       "KAGGLE"
     ]
+  }
+  ,
+  {
+    "title": "PriceTracker Microservicios ",
+    "subtitle": "El price tracker siempre disponible 💲",
+    "project_tags": ["Microservicios"],
+    "hide": false,
+"description": "Price Tracker es un sistema diseñado con una arquitectura de microservicios para ofrecer un monitoreo de precios con datos históricos. Implementa tres microservicios: API, AUTH (JWT) y Scraper, además de un frontend moderno e intuitivo. Esta estructura asegura alta disponibilidad y escalabilidad, ideal para entornos que requieren datos actualizados de manera continua.",
+    "keyPoints": [
+      "Microservicios",
+      "Disponibilidad",
+      "JWT Auth",
+      "CI/CD"
+      
+    ],
+    "media": [
+     
+      {
+        "type": "image",
+        "src": "/media/msdesign.png"
+      }    ,
+      {
+        "type": "image",
+        "src": "/media/Dashboard.png"
+      } 
+    ],
+    "tags": [
+      "JS",
+      "TS",
+      "DOCKER",
+      "MONGODB"
+    ]
   }  
 ]

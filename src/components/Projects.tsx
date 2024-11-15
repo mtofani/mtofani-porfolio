@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Github,Code, CircleDollarSign,BookHeart,CircleEllipsis, Link, Zap, Timer, ChevronDown, ChevronUp, Server, SearchCode, Boxes, AudioLines } from "lucide-react"
+import { Github,Code, Activity, ShieldCheck,  Package , CircleDollarSign,BookHeart,CircleEllipsis, Link, Zap, Timer, ChevronDown, ChevronUp, Server, SearchCode, Boxes, AudioLines } from "lucide-react"
 import {
   Carousel,
   CarouselContent,
@@ -31,9 +31,13 @@ const iconMap = {
   "costo": <CircleDollarSign className="h-5 w-5 text-green-500" />,
   "Datos seguros": <BookHeart className="h-5 w-5 text-yellow-500" />,  
   "seg": <Timer className="h-5 w-5" />,
-  "Eventos": <Zap className="h-5 w-5 text-yellow-700" />,
+  "Eventos": <Zap className="h-5 w-5 text-yellow-500" />,
   "Cluster": <Boxes className="h-5 w-5 text-yellow-500" />,
   "Voz": <AudioLines className="h-5 w-5 text-yellow-500" />,
+  "Microservicios": <Code className="h-5 w-5 text-green-500" />,
+  "Disponibilidad":  <Activity className="h-5 w-5 text-green-500"/>,
+  "Auth":  <ShieldCheck className="h-5 w-5 text-orange-500" />
+  ,"CI/CD":  <Package  className="h-5 w-5 text-blue-500" />
 }
 
 
@@ -122,7 +126,7 @@ export default function Portfolio() {
                     ))}
                   </div>
                 )}
-                <CardTitle className="text-2xl font-bold bg-gradient-to-r from-white to-purple-100 bg-clip-text text-transparent">
+                <CardTitle className="text-2xl font-bold bg-gradient-to-r from-white to-purple-400 bg-clip-text text-transparent">
                   {project.title}
                 </CardTitle>
                
@@ -180,34 +184,35 @@ export default function Portfolio() {
                 </Carousel>
 
                 {project.subtitle && (
-                  <h3 className="text-lg font-semibold text-yellow-400/90">{project.subtitle}</h3>
+                  <h3 className="text-xl font-semibold text-yellow-400/90">{project.subtitle}</h3>
                 )}
                 
-                <p className="text-slate-300 leading-relaxed">
+                <div className="text-slate-300 text-sm leading-relaxed">
                   {project.description.slice(0, 200)}...
                   <Dialog>
                     <DialogTrigger asChild>
-                      <Button variant="link" className="text-yellow-400 text-md hover:underline ml-2 p-2">
+                      <Button variant="link" className="text-green-400 text-lg hover:underline hover:scale-110 ml-2 p-2">
                         Ver más<CircleEllipsis className="h-4 w-4 ml-2" />
                       </Button>
                     </DialogTrigger>
                     <DialogContent className="bg-slate-900 max-w-4xl h-auto py-10">
-                    <h3 className="prose-xl text-yellow-500 ">{project.subtitle}</h3>
+                    <h3 className="prose-xl text-yellow-200 ">{project.subtitle}</h3>
                       <p className="prose-lg">{project.description}</p>
                       
                     </DialogContent>
                   </Dialog>
                   {project.keyPoints && (
                         <KeyPoints 
+                          key={index}
                           points={project.keyPoints}
                           getIcon={getIconForKeyPoint}
                         />
                       )}
-                </p>
+                </div>
 
                 {project.tags && (
-                  <div className="space-y-2">
-                    <h4 className="text-sm font-medium text-purple-200">Tecnologías utilizadas</h4>
+                  <div className="space-y-2 items-center p-1 m-1">
+                    <h4 className="text-lg font-medium text-purple-200">Tecnologías utilizadas</h4>
                     <Tags tags={project.tags} />
                   </div>
                 )}
@@ -232,7 +237,7 @@ export default function Portfolio() {
                     asChild
                   >
                     <a href={project.link} target="_blank" rel="noopener noreferrer">
-                      <Link className="w-4 h-4 mr-2" />
+                      <Link className="w-5 h-5 mr-2" />
                       Link
                     </a>
                   </Button>

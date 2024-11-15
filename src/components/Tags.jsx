@@ -1,6 +1,6 @@
 import React from 'react';
 import PROJECTS from '../contents/projects.json'
-import { Networking, HUGGINGFACE, JS, PYTHON, LANGCHAIN } from './icons'; // Importa tus iconos
+import { Networking, HUGGINGFACE, JS, PYTHON, LANGCHAIN, MONGODB, DOCKER,TS } from './icons'; // Importa tus iconos
 import {Braces} from "lucide-react";
 
 const tagComponents = {
@@ -29,11 +29,31 @@ const tagComponents = {
     name: "Langchain",
     class: "h-30 w-30",
     icon: LANGCHAIN// Ejemplo de un icono de texto
-  }
-};
+  } , 
+
+
+"MONGODB": {
+  name: "MongoDB",
+  class: "h-30 w-30",
+  icon: MONGODB// Ejemplo de un icono de texto
+
+},
+"DOCKER": {
+  name: "Docker",
+  class: "h-30 w-30",
+  icon: DOCKER// Ejemplo de un icono de texto
+}
+,
+"TS": {
+  name: "Typescript",
+  class: "h-30 w-30",
+  icon: TS// Ejemplo de un icono de texto
+}
+
+}
 
 const Tags = ({ tags }) => (
-  <div className="flex gap-2 mb-4 mt-3">
+  <div className="flex gap-5 mb-4 mt-3">
     {tags.map((tagKey, tagIndex) => {
       const tagInfo = tagComponents[tagKey];
 
@@ -42,10 +62,10 @@ const Tags = ({ tags }) => (
       const IconComponent = tagInfo.icon;
 
       return (
-        <div className='flex flex-col items-center gap-1 mx-2 p-1 '>
+        <div key={tagIndex}  className='flex flex-col items-center p-1 mt-1 '>
          
-          <IconComponent className=" mr-1" /> 
-          <span className='text-gray'> {tagInfo.name}</span>
+          <IconComponent className="mr-1" /> 
+          <span className='text-gray text-sm mt-1'> {tagInfo.name}</span>
          
        </div>
       );

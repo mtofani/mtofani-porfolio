@@ -3,7 +3,7 @@
     "title": "IT Consultant",
     "company": "MT",
     "period": "Actualmente",
-    "description": "Me encuentro trabajando como consultor en un proyecto con un ISP e IBM, en dos verticales: Multitenancy observability en HA para creación de nuevo producto orientado a customers y Network Automation.",
+    "description": "Consultor en proyecto con un ISP e IBM, en dos verticales: Multitenancy observability en HA y Network Automation, para creación de nuevo producto orientado a customers",
     "keyPoints": [
       "Multitenancy observability",
       "Network Automation"
@@ -12,11 +12,11 @@
     "achievements": [
       {
         "title": "Observabilidad Multitenant HA",
-        "description": "Diseño e implementación de una solución de alta disponibilidad orientado a customers "
+        "description": "Diseño e implementación de una solución de alta disponibilidad orientado a clientes. "
       },
       {
         "title": "Workflow automation",
-        "description": "Automatización de procesos de red para optimización de red"
+        "description": "Automatización de procesos de red para optimización de red."
       }
     ]
   },
@@ -26,8 +26,8 @@
     "period": "Jul 2022 - May 2024",
     "description": "Arquitecto de soluciones, impulsando la transformación digital mediante investigación, desarrollo y diseño de plataformas innovadoras.",
     "keyPoints": [
-      "Investigación y desarrollo de plataformas innovadoras",
-      "Comité de Transformación digital",
+      "I+D",
+      "Comité de Transformación Digital",
       "Diseño de sistemas",
       "Mentoring"
     ],
@@ -48,8 +48,8 @@
     ],
     "achievements": [
       {
-        "title": "Proyecto IPLAN WholeSaler",
-        "description": "Integración exitosa con aliados ISPs sobre red GPON. Primera alianza - Telefónica Argentina en tan solo 4 meses. Construcción de sistemas coordinando equipos internos y outsourcing."
+        "title": "Proyecto IPLAN WholeSaler - Red GPON",
+        "description": "Construcción de sistemas (Fault, Performance y Diágnostico) para alianza del cliente con Telefónica Argentina. Coordinando equipos internos y externos, en tan solo 4 meses."
       },
       {
         "title": "Liderazgo técnico",
@@ -64,17 +64,17 @@
   {
     "title": "(External) IT Consultant",
     "company": "SITS - PandoraFMS",
-    "period": "May 2021 - Sept 2022",
-    "description": "Lideré el proceso de investigación para el cliente ARTICA en la adopción de QA Automation (e2e) para reducir issues/fixes de su producto de monitorización PANDORAFMS.",
+    "period": "May 2021 - Sep 2022",
+    "description": "Liderazgo de I+D para el cliente Artica en la adopción de QA Automation (e2e) con el objetivo de reducir issues/fixes en su producto de monitorización PandoraFMS.",
     "keyPoints": [
       "QA Automation (e2e)",
-      "Mejora de mesa de ayuda para LATAM"
+      "Optimización de mesa de ayuda para LATAM"
     ],
     "technologies": ["PandoraFMS", "QA Automation","Cypress","Selenium","ProxySQL","GaleraDB"],
     "achievements": [
       {
         "title": "Adopción de QA Automation",
-        "description": "Investigación y adopción de QA Automation para mejorar la calidad de los releases del cliente"
+        "description": "Investigación y adopción de QA Automation para mejorar la calidad de los releases del cliente."
       }
     ]
   },
@@ -82,7 +82,7 @@
     "title": "Software Engineer",
     "company": "IPLAN NSS",
     "period": "Oct 2019 - Jun 2022",
-    "description": "Diseñé la arquitectura de plataformas de monitoreo en HA para +3000 dispositivos, reemplazando soluciones de Fault & Performance actuales y automatizando integraciones de API REST y Webhooks.",
+    "description": "Diseño de arquitectura de plataformas de monitoreo en HA para +3000 dispositivos, reemplazando soluciones de Fault & Performance existentes y implementando automatizaciones e integraciones, APIs, Bots y Webhooks.",
     "keyPoints": [
       "Arquitectura de monitoreo",
       "Automatización de integraciones",
@@ -92,11 +92,11 @@
     "achievements": [
       {
         "title": "Caso de Exito - PandoraFMS - Reemplazo de Fault & Performance",
-        "description": "Reducción del 88% en costos anuales del presupuesto"
+        "description": "Reducción del 88% en costos anuales del presupuesto."
       },
       {
         "title": "Construcción de APIs REST",
-        "description": "Lideré elección, adopción y construcción de APIs REST con Flask-RESTx, siendo el framework de desarrollo de APIs REST estandarizado de toda la compañía"
+        "description": "Liderazgo en la elección, adopción y construcción de APIs REST con Flask-RESTx, siendo el framework de desarrollo de APIs REST estandarizado de toda la compañía."
       }
     ]
   },
@@ -104,17 +104,17 @@
     "title": "NMS Analyst",
     "company": "IPLAN NSS",
     "period": "Oct 2011 - Jun 2019",
-    "description": "Analista de NMS, soporte en sistemas de autoprovisioning, descubrimiento de red, SNMP y Bash scripting.",
+    "description": "Analista de NMS, soporte en diversos sistemas (Network Discovery, Autoprovisioning, Backups).",
     "keyPoints": [
-      "Soporte en autoprovisioning",
-      "Descubrimiento de red",
+      "Soporte en Autoprovisioning",
+      "Network Discovery",
       "SNMP y Bash scripting"
     ],
     "technologies": ["SNMP", "Bash scripting", "NMS","Oracle","MySQL","Nagios","Tivoli"],
     "achievements": [
       {
         "title": "Reemplazo de Fault & Performance Nagios to IBM Tivoli Monitoring ",
-        "description": "Liderazgo del reemplazo del F&P"
+        "description": "Liderazgo del proyecto."
       }
      
     ]

@@ -53,7 +53,7 @@ const tagComponents = {
 }
 
 const Tags = ({ tags }) => (
-  <div className="flex gap-5 mb-4 mt-3">
+  <div className="flex gap-5 mb-4 mt-3 items-center justify-start p-1">
     {tags.map((tagKey, tagIndex) => {
       const tagInfo = tagComponents[tagKey];
 
@@ -62,7 +62,7 @@ const Tags = ({ tags }) => (
       const IconComponent = tagInfo.icon;
 
       return (
-        <div key={tagIndex}  className='flex flex-col items-center p-1 mt-1 '>
+        <div key={tagIndex}  className='flex flex-col items-center p-1 mt-2  '>
          
           <IconComponent className="mr-1" /> 
           <span className='text-gray text-sm mt-1'> {tagInfo.name}</span>

@@ -78,7 +78,7 @@ export default function EnhancedMinimalistMentoringDonation() {
                 </div>
                 
                 <p className="p-2 text-gray-300 text-md leading-loose" >
-                  Si mi contenido te ha sido útil, considera invitarme a un café!
+                  Si mi contenido te ha sido útil, considera invitarme un café 😜
                 </p>
                 <a 
                   href='https://cafecito.app/maximilianomt'  

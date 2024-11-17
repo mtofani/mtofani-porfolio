@@ -21,6 +21,21 @@ import Tags from "./Tags"
 import KeyPoints from "./Keypoints";
 import WorkingArea from "./WorkingArea";
 
+
+type Project = {
+  title: string;
+  project_tags: string[];
+  subtitle: string;
+  hide: boolean;
+  description: string;
+  keyPoints: string[];
+  link?: string;
+  github?: string; // Agrega esta propiedad opcional
+  media: { type: string; src: string }[];
+  tags: string[];
+};
+
+
 const iconMap = {
   "Multitenancy observability": <Server className="h-5 w-5" />,
   "Dev": <Code className="h-5 w-5 text-yellow-300" />,
@@ -88,33 +103,33 @@ export default function Portfolio() {
   };
 
   return (
-    <section className="py-16">
-      <div className="max-w-7xl mx-auto space-y-10">
+    <section className="py-10">
+      <div className="w-full">
         <h2 className="text-4xl font-extrabold text-center relative">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-purple-500">
             Proyectos
           </span>
           <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-purple-300 to-purple-500 rounded-full" />
         </h2>
-        <div className="flex flex-col justify-center items-center transition-transform duration-500 hover:scale-105">
+        <div className="flex flex-col mt-2 justify-center items-center transition-transform duration-500 hover:scale-105">
           {isWorkingArea && (
-            <WorkingArea title="Ponte el casco!" sub=" Estamos en construcción. 🚧"></WorkingArea>
+            <WorkingArea title="Ponte el casco!" sub=" Estamos en construcción 🚧"></WorkingArea>
           )}
         </div>
              {/* Mostrar tag seleccionado */}
-             <div className="text-center text-md p-0 m-0 ">
+             <div className="text-center text-md p-0 m-2 ">
           Filtrando por: <span className="font-bold text-purple-500">{selectedTag}</span>
         </div>
         
         {/* Muestra los tags */}
-        <div className="flex justify-center space-x-4 mb-3">
-          <Button  className="text-white transition-transform duration-500 hover:scale-125 hover:text-purple-500 hover:bg-slate-900 bg-slate-900 " onClick={() => handleTagClick("Todos")}>Todos</Button>
+        <div className="flex flex-wrap justify-center gap-3 mb-10 mt-5">
+        <Button  className="text-xs md:text-lg text-white transition-transform duration-500 hover:scale-125 hover:text-purple-500 hover:bg-slate-900 bg-slate-900 " onClick={() => handleTagClick("Todos")}>Todos</Button>
           {Array.from(new Set(PROJECTS.flatMap(project => project.project_tags))).map((tag, index) => (
-            <Button className="text-white transition-transform duration-500 hover:scale-125 hover:text-purple-500 hover:bg-slate-900 bg-slate-900" key={index} onClick={() => handleTagClick(tag)}>{tag}</Button>
+            <Button className="text-xs md:text-lg text-white transition-transform duration-500 hover:scale-125 hover:text-purple-500 hover:bg-slate-900 bg-slate-900" key={index} onClick={() => handleTagClick(tag)}>{tag}</Button>
           ))}
         </div>
         <div className="grid lg:grid-cols-2 gap-5">
-          {filteredProjects.slice(0, visibleProjects).map((project, index) => (
+          {filteredProjects.slice(0, visibleProjects).map((project: Project, index: number) => (
             <Card key={index} className="group relative flex flex-col bg-purple-950/30 border border-purple-700/30 rounded-xl overflow-hidden transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_15px_rgba(168,85,247,0.15)]">
               <CardHeader className="space-y-4">
               {project.project_tags && (
@@ -196,8 +211,8 @@ export default function Portfolio() {
                       </Button>
                     </DialogTrigger>
                     <DialogContent className="bg-slate-900 max-w-4xl h-auto py-10">
-                    <h3 className="prose-xl text-yellow-200 ">{project.subtitle}</h3>
-                      <p className="prose-lg">{project.description}</p>
+                    <h3 className="prose-lg text-yellow-200 p-2">{project.subtitle}</h3>
+                      <p className="prose-md">{project.description}</p>
                       
                     </DialogContent>
                   </Dialog>

@@ -3,19 +3,19 @@
       "iconComponent": "Server",
       "color": "bg-purple-700",
       "title": "Telco & Operating Systems",
-      "description": "Especialista en la Ingeniería de sistemas del sector Telco, transformación digital con un fuerte enfoque en la mejora de la eficiencia, estandarización, calidad y rendimiento de areas Operativas",
+      "description": "Especialista en la Ingeniería de sistemas del sector Telco, transformación digital con un fuerte enfoque en la mejora de la eficiencia, estandarización, calidad y rendimiento de áreas operativas.",
       "technologies": [
         {
           "name": "Telco Digital",
           "level": "Intermedio",
-          "description": "Conocimientos en infraestructuras de telecomunicaciones, servicios de Internet y redes. +13 años de exp en la implementación y gestión de soluciones y plataformas de ISP",
+          "description": "Conocimientos en infraestructuras de telecomunicaciones, servicios de Internet y redes. +13 años de exp en la implementación y gestión de soluciones y plataformas de ISP.",
           "iconClass": "",
           "component": "Network"
         },
         {
           "name": "Linux",
           "level": "Experto",
-          "description": "Administración avanzada de sistemas RHEL y CentOS, Bash Scripting, Balanceadores de carga, NGINX. etc",
+          "description": "Administración avanzada de sistemas RHEL y CentOS, Bash Scripting, Balanceadores de carga, NGINX, etc.",
           "iconClass": "devicon-linux-plain"
         },
         {
@@ -78,7 +78,7 @@
       "iconComponent": "Cloud",
       "color": "bg-cyan-500",
       "title": "Cloud & Microservices",
-      "description": "Arquitecto de soluciones certificado en AWS , cloud native y microservicios.",
+      "description": "Arquitecto de soluciones certificado en AWS, cloud native y microservicios.",
       "technologies": [
         {
           "name": "Kubernetes",
@@ -89,7 +89,7 @@
         {
           "name": "OpenShift",
           "level": "Avanzado",
-          "description": "Orquestacion de pods, ciclo de vida, optimizando el despliegue y escalado de aplicaciones con alta disponibilidad.",
+          "description": "Orquestacion de pods y ciclo de vida, optimizando el despliegue y escalado de aplicaciones con alta disponibilidad.",
           "iconClass": "devicon-redhat-plain"
         },
         {
@@ -123,12 +123,12 @@
       "iconComponent": "Brain",
       "color": "bg-black",
       "title": "Machine Learning & AI",
-      "description": "Te ayudo a integrar IA en tu empresa utilizando herramientas cloud como OpenAI, Bedrock y SageMaker. Adaptamos los modelos y bots a tus necesidades para optimizar procesos y mejorar la eficiencia. Además, si tu prioridad es la privacidad o tienes acuerdos de confidencialidad (NDAs), también podemos implementar las soluciones en tus sistemas locales, garantizando así la seguridad de tu información.",
+      "description": "Integraciones IA en empresas con soluciones cloud como OpenAI, Bedrock y SageMaker, adaptando modelos y bots en optimizaciones de procesos y mejora de eficiencia. Si el foco está en la privacidad o los acuerdos de confidencialidad (NDAs), las soluciones se pueden implementar en sistemas locales del cliente, garantizando así la seguridad de la información.",
       "technologies": [
         {
           "name": "Modelos de Lenguaje",
           "level": "Intermedio",
-          "description": "Personaliza y ajusta modelos GPT y LLM con OpenAI, Hugging Face y SageMaker, aplicando prompting avanzado.",
+          "description": "Personalización y ajuste de modelos GPT y LLM con OpenAI, Hugging Face y SageMaker, aplicando prompting avanzado.",
           "iconClass": "devicon-huggingface-plain",
           "component": "Bot"
         },
@@ -148,7 +148,7 @@
           "component": "Wrench"
         },
         {
-          "name": "Prototipos ágil y Aplicaciones Interactivas",
+          "name": "Prototipos Agile y Aplicaciones Interactivas",
           "level": "Intermedio",
           "description": "Creación de aplicaciones de IA generativa con Streamlit y Gradio, y visualización en Jupyter Notebooks.",
           "iconClass": "devicon-streamlit-plain",
@@ -174,25 +174,25 @@
         {
           "name": "Python",
           "level": "Intermedio",
-          "description": "Construcción de APIs eficientes y flexibles usando Flask, FastAPI.",
+          "description": "Construcción de APIs eficientes y flexibles usando Flask y FastAPI.",
           "iconClass": "devicon-python-plain"
         },
         {
           "name": "React",
           "level": "Experto",
-          "description": "Desarrollo de interfaces modernas y responsivas utilizando React, aplicando conceptos de componentes, hooks y gestión de estado",
+          "description": "Desarrollo de apps modernas y responsivas utilizando React, aplicando conceptos de componentes, hooks y gestión de estado.",
           "iconClass": "devicon-react-original"
         },
         {
           "name": "React Native",
           "level": "Experto",
-          "description": "Desarrollo apps móviles con Expo.",
+          "description": "Desarrollo de apps móviles con Expo.",
           "iconClass": "devicon-react-original"
         },
         {
           "name": "Astro",
           "level": "Experto",
-          "description": "Desarrollo de webs estáticas, portafolios, etc.",
+          "description": "Desarrollo de landing pages, portafolios, etc.",
           "iconClass": "devicon-astro-plain"
         },
         {
@@ -204,7 +204,7 @@
         {
           "name": "GraphQL",
           "level": "Intermedio",
-          "description": "Construcción de APIs eficientes y flexibles.",
+          "description": "Construcción de APIs de alto rendimiento.",
           "iconClass": "devicon-graphql-plain"
         },
         {
@@ -221,24 +221,24 @@
       "color": "bg-blue-700",
       "title": "Automation & DevOps",
       
-      "description": "Implementación de prácticas actuales del mercado,  DevOps y CI/CD para optimizar el ciclo de vida del desarrollo e independencia entre equipos.",
+      "description": "Implementación de prácticas actuales del mercado, DevOps y CI/CD, optimizando el ciclo de vida del desarrollo e independencia entre equipos.",
       "technologies": [
         {
           "name": "Pipelines",
           "level": "Avanzado",
-          "description": "Automatización de flujos de trabajo de integración continua en CircleCI, Github Actions, GitLab, y AWS Codepipeline",
+          "description": "Automatización de flujos de trabajo de integración continua en CircleCI, Github Actions, GitLab, y AWS Codepipeline.",
           "iconClass": "devicon-jenkins-plain"
         },
         {
           "name": "Low code",
           "level": "Intermedio",
-          "description": "Workflow automation con herramientas como: n8n, Botpress, IBM RNA.",
+          "description": "Workflow automation con herramientas como: n8n, Botpress e IBM RNA, +.",
           "iconClass": "devicon-terraform-plain"
         },
         {
           "name": "Terraform",
           "level": "Intermedio",
-          "description": "Infraestructura como código y gestión de recursos",
+          "description": "IaC y gestión de recursos.",
           "iconClass": "devicon-terraform-plain"
         },
         {

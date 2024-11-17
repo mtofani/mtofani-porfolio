@@ -48,7 +48,7 @@ export default function RolesItem({ role }) {
             <div>
               <h4 className="text-sm font-semibold text-yellow-400 flex items-center gap-2 mb-2">
                 <Star className="h-4 w-4" />
-                Responsabilidades Clave
+                Responsabilidades clave
               </h4>
               <ul className="space-y-2">
                 {role.keyPoints.map((point, i) => (
@@ -65,7 +65,7 @@ export default function RolesItem({ role }) {
             <div>
               <h4 className="text-sm font-semibold text-green-400 flex items-center gap-2 mb-2">
                 <Award className="h-4 w-4" />
-                Logros Destacados
+                Logros destacados
               </h4>
               <ul className="space-y-2">
                 {role.achievements.map((achievement, i) => (

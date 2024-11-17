@@ -1,23 +1,23 @@
 [
     {
         "icon": "Code",
-        "title": "Desarrollo Avanzado",
-        "description": "Soluciones de software innovadoras utilizando las últimas tecnologías del mercado."
+        "title": "Desarrollo",
+        "description": "Soluciones de software innovadoras utilizando métodologías ágiles."
     },
     {
         "icon": "Server",
         "title": "Arquitectura de Soluciones",
-        "description": "Diseño de sistemas escalables y de alto rendimiento para empresas en crecimiento."
+        "description": "Diseño de sistemas escalables y de alto rendimiento para diferentes sectores."
     },
     {
         "icon": "Cpu",
         "title": "Integración de IA",
-        "description": "Implementación de soluciones de IA y aprendizaje automático para optimizar procesos empresariales."
+        "description": "Implementación de soluciones de IA, para la optimización de procesos."
     },
     {
         "icon": "Cloud",
         "title": "Transformación Digital",
-        "description": "Guía estratégica Estrategia y Gestión de Proyectos Tecnológicos. Adopción de tecnologías cloud y prácticas DevOps."
+        "description": "Estrategia y gestión de proyectos tecnológicos, adoptando tecnologías cloud y prácticas DevOps."
     }
 ]
 
